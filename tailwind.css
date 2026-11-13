@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body  {
+    @apply transition-colors duration-300;
+}
+
+.container {
+  max-width: 1024px;
+}
+
+.nav a {
+  opacity: 0.5;
+}
+
+.nav a:hover {
+  opacity:1;
+  text-decoration: underline;
+}
+
+.lm {
+  width:32px;
+  height:32px;
+  text-indent: -10000px;
+}
+
+.lm:hover {opacity: 0.5}
+
+.md-light {
+  background:url('/assets/img/fi-rr-moon.svg');
+  background-size: cover;
+}
+.md-dark {
+  background:url('/assets/img/fi-rr-sun.svg');
+  background-size: cover;
+}
+
+.prose {color:inherit}
+.paginator-text {
+  @apply text-gray-600 font-bold py-2 px-4;
+}
+
+.post-tag {
+  @apply inline-block text-xs rounded-full py-2 px-4 mt-1 mr-1 bg-gray-300 dark:bg-gray-500;
+}
+
+.tag::after {content:","; background: yellow}
+.tag:last-child::after {content:""}
+
+.prose {max-width: 1152px;}
+
+.prose p:first-child {font-size: 166%; line-height: 120%; font-weight: 500; }
+.prose pre {
+  max-width:100%
+}
+.prose h2, .prose h3, .prose h2 a {font-weight: 500!important; font-size:110%}
+
+
+figure img {box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 0.2); }
+figure figcaption {text-align: center; font-weight: 400; margin-top:16px; line-height: 1.1em; @apply text-gray-500; font-size: 75%}
+.prose figure figcaption {font-size: 70%}
+
+figure.no-shadow img {box-shadow:none}
+
+.avatar {border-radius: 400px; overflow: hidden;}
+
+.leading-12 h1 {line-height: 1.15em}
+
+.homelink a:hover {color: black;}
+
+a:hover {color:gold}

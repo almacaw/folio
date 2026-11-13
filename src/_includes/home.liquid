@@ -1,0 +1,65 @@
+---
+layout: main
+---
+{% include "nav.liquid" %}
+
+<div class="py-16 md:py-32 border-b-2">
+  <p class="text-base sm:text-lg font-medium opacity-60">Senior Product Designer &amp; Design Engineer</p>
+  <h1 class="mt-4 text-4xl lg:text-6xl font-semibold leading-tight">
+    Closing the gap between design and production.
+  </h1>
+  <p class="mt-8 text-lg lg:text-2xl leading-relaxed max-w-3xl">
+    25 years across UX, product design and front-end development. I take products from research and interaction design through to working code, and use AI-assisted development to put realistic, functional prototypes in front of users and engineers sooner.
+  </p>
+  <ul class="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-lg font-medium">
+    <li><a class="underline" href="#work">See my work</a></li>
+    <li><a class="underline" href="mailto:{{ site.email }}">Get in touch</a></li>
+    <li><a class="underline" href="{{ site.linkedin }}">LinkedIn</a></li>
+  </ul>
+</div>
+
+<div class="py-16 border-b-2">
+  <h2 class="text-2xl font-semibold">How I work</h2>
+  <div class="mt-8 grid gap-10 md:grid-cols-3">
+    <div>
+      <h3 class="text-xl font-semibold">Understand</h3>
+      <p class="mt-2 text-lg leading-relaxed">Discovery, research and usability testing. Making sense of ambiguity and complex domains, from share schemes to business travel.</p>
+    </div>
+    <div>
+      <h3 class="text-xl font-semibold">Design</h3>
+      <p class="mt-2 text-lg leading-relaxed">Interaction design, information architecture, UI and design systems, shaped with product and engineering rather than handed over to them.</p>
+    </div>
+    <div>
+      <h3 class="text-xl font-semibold">Build</h3>
+      <p class="mt-2 text-lg leading-relaxed">HTML, CSS and JavaScript, React and static site generators, and functional prototypes built with Claude to test real interaction logic.</p>
+    </div>
+  </div>
+</div>
+
+<div id="work" class="dark:prose-invert text-xl leading-9 font-book pt-16">
+  {{ content }}
+</div>
+
+<div class="border-t-2 py-16">
+  <h2 class="text-2xl font-semibold">Things I've built</h2>
+  <div class="mt-8 grid gap-10 md:grid-cols-2">
+    <div>
+      <h3 class="text-xl font-semibold"><a class="underline" href="https://auderli.com">Auderli marketing site</a></h3>
+      <p class="mt-2 text-lg leading-relaxed">Designed and built in Gatsby and React, including the blog, help centre, pricing and partner landing pages, before moving it to Webflow.</p>
+    </div>
+    <div>
+      <h3 class="text-xl font-semibold">This site</h3>
+      <p class="mt-2 text-lg leading-relaxed">Built with Eleventy and Tailwind CSS. A static site with responsive images and dark mode, that works with JavaScript turned off.</p>
+    </div>
+  </div>
+  <p class="mt-10 text-lg leading-relaxed opacity-60">I also volunteer, most recently rebuilding the website for Aide et Espoir, an Anglo-French charity helping children and families affected by war and conflict.</p>
+</div>
+
+<div class="border-t-2 py-16">
+  <h2 class="text-2xl font-semibold">What people say</h2>
+  <blockquote class="mt-8 text-xl lg:text-2xl leading-relaxed max-w-4xl">
+    &ldquo;&hellip;simply one of the best designers I’ve ever worked with. He is highly collaborative, working closely with developers, product managers and other team members on a daily basis. He takes a lead role in the direction the product takes but he’s also very good at listening and considering the views of others. Always calm, Al is someone who can be relied on and is willing and able.&rdquo;
+  </blockquote>
+  <p class="mt-4 text-lg">Nick Doyle, CTO, Auderli</p>
+  <p class="mt-6 text-lg"><a class="underline" href="{{ site.linkedin }}">Read more recommendations on LinkedIn</a></p>
+</div>

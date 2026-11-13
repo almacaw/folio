@@ -1,0 +1,23 @@
+---
+layout: main
+---
+
+{% include "nav.liquid" %}
+
+  <div class="pr-16 pt-12 text-3xl lg:text-7xl font-semibold leading-10">
+      <h1>
+      {{title}}
+      </h1>
+  </div>
+  <div class="nav text-md py-4 pb-12">
+    {% if date %}
+      <span>{{ date | date: "%Y-%m-%d" }}</span> &mdash;
+    {% endif %}
+      <span>{{ content | readTime }} min read</span>
+  </div>
+
+  <div class="">
+    <div class="prose dark:prose-invert text-l xl:text-xl leading-6 xl:leading-9 font-book pb-8">
+      {{ content }}
+    </div>
+  </div>
