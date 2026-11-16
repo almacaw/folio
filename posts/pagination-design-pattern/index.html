@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  	<meta name='viewport' content='width=device-width'>
+
+    <title>Pagination design patterns - pimp your hit area</title>
+    <meta name='description' content="">
+    <meta name="theme-color" content="#ffffff"/>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json" />
+
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+    <link href="/assets/styles/tailwind.css" rel="stylesheet" />
+    <link href="/assets/styles/index.css" rel="stylesheet" />
+    <script>
+      const isDarkMode = () => localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      // Set the theme before the body renders to avoid a flash; the toggle icon is set at the end of the body
+      if (isDarkMode()) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J096MER4MD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J096MER4MD');
+    </script>
+
+  </head>
+
+  <body class="dark:text-white dark:bg-black">
+    
+<div class="container mx-auto px-4 xl:px-8">
+<div class="flex py-2 pt-12">
+  <div class="text-3xl font-semibold flex-none homelink"><a href="/">Alexander Stevens</a></div>
+  <div class="flex-auto self-end flex flex-row-reverse"><span class="lm md-light cursor-pointer" id="toggleDarkMode">Dark mode</span></div>
+</div>
+<main>
+  
+<nav>
+  <ul class="nav flex border-b-2 py-4">
+    <li><a class="text-l pr-6" href="/">Work</a></li>
+    <li><a class="text-l pr-6" href="/journal/">Journal</a></li>
+    <li><a class="text-l pr-6" href="/about/">About</a></li>
+    <li><a class="text-l pr-6" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+  </ul>
+</nav>
+
+
+  <div class="pr-16 pt-12 text-3xl lg:text-7xl font-semibold leading-10">
+      <h1>
+      Pagination design patterns - pimp your hit area
+      </h1>
+  </div>
+  <div class="nav text-md py-4 pb-12">
+    
+      <span>2010-12-31</span> &mdash;
+    
+      <span>11 min read</span>
+  </div>
+
+  <div class="">
+    <div class="prose dark:prose-invert text-l xl:text-xl leading-6 xl:leading-9 font-book pb-8">
+      <p>According to a <a href="http://www.smashingmagazine.com/2007/11/16/pagination-gallery-examples-and-good-practices/">Smashing Magazine article on pagination</a> &quot;In most cases pagination is better than traditional “previous – next” navigation as it offers visitors a more quick and convenient navigation through the site. It’s not a must, but a useful nice-to-have-feature.&quot;</p>
+<!--more-->
+<p>And there are plenty of examples and design patterns out there some of which give really powerful control to users. But there's a problem...</p>
+<h3>The problem with some pagination</h3>
+<p>The problem that the majority of websites and design patterns fail to address is to cater well for the default behaviour whilst giving people all then options they might desire.</p>
+<p>Consider the design of the TV set. Manufacturers and designers have realised that although it's important to be able to adjust the contrast without a remote control, it is not a default behaviour - and therefore it is ok to hide the controls at the side of the set, maybe even covered by a discreet door.</p>
+<p>Well, coming back to pagination, how many users are going to need to go to exactly page twenty two, or twenty three or twenty four? (On a side note - if people are forced to remember page numbers to locate an item then you're probably already doing something wrong in your user interface). I often find it hard - particularly when using mobile devices to activate a tiny &gt; link when its crowded out by ten other page numbers and other links.</p>
+<h3>Designing using the normal distribution curve.</h3>
+<p>Throughout product design and architecture the design brief is shaped by what's called the <a href="http://en.wikipedia.org/wiki/Normal_distribution_curve">normal distribution</a>.  It all gets a bit statistical and mathematical but in lamens terms it is a term used to describe how/where the majority of people fit within a normal distribution curve.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/5qfS7F11Ks-320.jpeg 320w, /img/5qfS7F11Ks-500.jpeg 500w" sizes="100vw">
+  <source type="image/png" srcset="/img/5qfS7F11Ks-320.png 320w, /img/5qfS7F11Ks-500.png 500w" sizes="100vw">
+      <img
+        src="/img/5qfS7F11Ks-320.jpeg"
+        alt="Normal distribution curve"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>A normal distribution curve as described on wikipedia https://en.wikipedia.org/wiki/Probability_theory</figcaption>
+    </figure>
+<p>If you look at the heights of a group of adults, you'll probably notice that most of them look about the same height. A few may be noticeably taller and a few may be noticeably shorter. This 'same height' will be near the average (called the 'mean' in statistics) and is shown in anthropometry tables as the fiftieth percentile, often written as '50th %ile'. This means that it is the most likely height in a group of people. 1</p>
+<p>The beauty of the normal distribution curve is that it is so universal in its application. Chart people's average height and you will get a normal distribution curve. How about weight, music taste, there are so many things it will describe - because it in itself is describing a random distribution around a mean/average value.</p>
+<p>In other words it &quot;is a continuous probability distribution that is often used as a first approximation to describe real-valued random variables that tend to cluster around a single mean value&quot;. 2</p>
+<h3>So what does that mean for design</h3>
+<p>Well in the world of furniture design for example - you may not be able to make a workbench 'height adjustable' - so what you do it make sure that it caters for as many people as possible.</p>
+<p>Deciding whether to use the 5th, 50th or 95th percentile value depends on what you are designing and who you are designing it for.</p>
+<p>Usually, you will find that if you pick the right percentile, 95% of people will be able to use your design. For instance, if you were choosing a door height, you would choose the dimension of people's height (often called 'stature' in anthropometry tables) and pick the 95th percentile value – in other words, you would design for the taller people. You wouldn't need to worry about the average height people, or the 5th percentile ones – they would be able to fit through the door anyway. 3</p>
+<h3>Hypothesis on how this applies to pagination</h3>
+<p>So how would a normal distribution curve apply to our pagination. Stats on pagination are pretty difficult to come by but  I believe it could look something like this.</p>
+<p>Now in this case the curve would actually be rather squared but I just wanted to illustrate how it fits with the normal distribution model.</p>
+<h3>Possible solutions</h3>
+<p>So for pagination it would seem to make sense to design for the 50th percentile - which is likely to cover  95% of use. But thats not all - we can actually cater for the final 5% of users by giving them less prominent options - just like in the TV example.</p>
+<p>Therefore I propose that designers should provide people with large, usable and pleasing hit areas for the default behaviours of moving backward and forward and then supplementing this with the feature rich pagination toolkit of their choice.</p>
+<h3>My preferred solution</h3>
+<p>{Missing sketch showing big forward and backwards buttons, with link to 'more options'}</p>
+<p>I believe that any solution should be designed to fit the specifics of an interface. That said simply highlighting the back and next and then adding in any complex pagination features into an overlay would seem like a good place to start. I'd love to know what you think.</p>
+<ul>
+<li>1Anthropometry - step by step - <a href="http://www.ergonomics4schools.com/lzone/anthropometry.htm">http://www.ergonomics4schools.com/lzone/anthropometry.htm</a></li>
+<li>2 Normal distribution - <a href="http://en.wikipedia.org/wiki/Normal_distribution_curve">http://en.wikipedia.org/wiki/Normal_distribution_curve</a></li>
+<li>1Anthropometry - step by step - <a href="http://www.ergonomics4schools.com/lzone/anthropometry.htm">http://www.ergonomics4schools.com/lzone/anthropometry.htm</a></li>
+</ul>
+
+    </div>
+  </div>
+
+</main>
+
+<footer>
+<div class="py-8 border-t-2 pb-16 md:flex md:justify-between md:items-end">
+  <div>
+    <h2 class="text-2xl font-semibold">Get in touch</h2>
+    <p class="mt-2 text-lg">Open to Senior and Lead Product Designer and Design Engineer roles, permanent or contract. CV available on request.</p>
+    <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-lg font-medium">
+      <li><a class="underline" href="mailto:email@alstevens.co.uk">email@alstevens.co.uk</a></li>
+      <li><a class="underline" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+    </ul>
+  </div>
+  <div class="mt-8 md:mt-0 md:ml-8 flex-none text-base opacity-60">© 2026 Alexander Stevens</div>
+</div>
+</footer>
+
+</div>
+
+
+  <script>
+    if (isDarkMode()) {
+      document.getElementById("toggleDarkMode").classList.add('md-dark');
+      document.getElementById("toggleDarkMode").classList.remove('md-light');
+    }
+
+    document.getElementById("toggleDarkMode").addEventListener("click", function() {
+      if (isDarkMode()) {
+        localStorage.theme = 'light'
+        document.documentElement.classList.remove('dark')
+        document.getElementById("toggleDarkMode").classList.remove('md-dark');
+        document.getElementById("toggleDarkMode").classList.add('md-light');
+      } else {
+        localStorage.theme = 'dark'
+        document.documentElement.classList.add('dark')
+        document.getElementById("toggleDarkMode").classList.add('md-dark');
+        document.getElementById("toggleDarkMode").classList.remove('md-light');
+      }
+    });
+  </script>
+  </body>
+</html>

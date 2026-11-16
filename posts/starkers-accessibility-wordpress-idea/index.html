@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  	<meta name='viewport' content='width=device-width'>
+
+    <title>An accessible "Starkers" Wordpress theme</title>
+    <meta name='description' content="">
+    <meta name="theme-color" content="#ffffff"/>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json" />
+
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+    <link href="/assets/styles/tailwind.css" rel="stylesheet" />
+    <link href="/assets/styles/index.css" rel="stylesheet" />
+    <script>
+      const isDarkMode = () => localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      // Set the theme before the body renders to avoid a flash; the toggle icon is set at the end of the body
+      if (isDarkMode()) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J096MER4MD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J096MER4MD');
+    </script>
+
+  </head>
+
+  <body class="dark:text-white dark:bg-black">
+    
+<div class="container mx-auto px-4 xl:px-8">
+<div class="flex py-2 pt-12">
+  <div class="text-3xl font-semibold flex-none homelink"><a href="/">Alexander Stevens</a></div>
+  <div class="flex-auto self-end flex flex-row-reverse"><span class="lm md-light cursor-pointer" id="toggleDarkMode">Dark mode</span></div>
+</div>
+<main>
+  
+<nav>
+  <ul class="nav flex border-b-2 py-4">
+    <li><a class="text-l pr-6" href="/">Work</a></li>
+    <li><a class="text-l pr-6" href="/journal/">Journal</a></li>
+    <li><a class="text-l pr-6" href="/about/">About</a></li>
+    <li><a class="text-l pr-6" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+  </ul>
+</nav>
+
+
+  <div class="pr-16 pt-12 text-3xl lg:text-7xl font-semibold leading-10">
+      <h1>
+      An accessible "Starkers" Wordpress theme
+      </h1>
+  </div>
+  <div class="nav text-md py-4 pb-12">
+    
+      <span>2008-07-31</span> &mdash;
+    
+      <span>7 min read</span>
+  </div>
+
+  <div class="">
+    <div class="prose dark:prose-invert text-l xl:text-xl leading-6 xl:leading-9 font-book pb-8">
+      <p>When I came to putting together this blog I was really happy to find the <a href="http://starkerstheme.com/">Starkers Wordpress Theme</a>. However with some simple additions – which can be easily implemented – from high contrast layouts and access keys to skip menus - we could make a massive difference in terms of accessibility to all sorts of users. This is the concept behind the creation of an Accessible Starkers Theme.<!--more--></p>
+<p>So why use Starkers? The Starkers theme is a brillant starting point from any Web Designer/Developer point of view since it gives us the clean starting point from which to style up the website. It starts by stripping out all css, and implements a universal reset <a href="http://meyerweb.com/eric/thoughts/2007/04/12/reset-styles/">like this one</a>.This is fabulous since it never is easy modifying other peoples css. More importantly it cleans up the code generated with the result being clean, <a href="http://en.wikipedia.org/wiki/HTML#Semantic_HTML">semantic markup</a> which in theory makes the website more accessible, googleable, maintainable, and more visible by multiple devices. SO in theory, all the building blocks are in place for a highly accessible website.</p>
+<p>Yesterday we went to the <a href="http://www.shaw-trust.org.uk/">Shaw Trust</a> in Wales to get our company website audited from an accessibility point of view. The Shaw Trust is a national charity that provides training and work opportunities for people who are disadvantaged in the labour market due to disability, ill health or other social circumstances. They offer a Web Accessibility Accreditation service to businesses which is designed to be the most comprehensive service available and endorsed by GAWDS (The Guild of Accessible Web Designers), it combines a full technical audit with rigorous disability user testing. Every member of the testing team is an experienced assistive technology user and understands the frustrations of not being able to access websites that don't consider the needs of disabled users.</p>
+<p>It was a really interesting day spending time with real people with differing needs, using the website on an array of different devices, from switches to screen readers. I have been involved with much discussion about accessibility - normally amongst colleagues and the wider online community, but had never spent time with real people accessing websites on all of these devices. Seeing all the little improvements we could make to our website - which would make a big difference for people of differing needs made me realise that I have kind of put accessibility no the back seat for a while. Resting happy that my semantic markup would be easily accessible to a screen reader - I had forgotten about the useful devices which can easily be implemented, from high contrast layouts and access keys to skip menus - which make a massive difference to all sorts of users.</p>
+<p>Suffice to say it will be a while until we can implement these changes to our website but that got me thinking that it might be nice to include some of those accessibility features - as standard - in a Wordpress theme.</p>
+<h2 id="the-starkers-accessibility-theme" tabindex="-1"><a class="header-anchor" href="#the-starkers-accessibility-theme"><span>The Starkers Accessibility Theme</span></a></h2>
+<p>So I got to thinking that maybe I could build on the great work done by Elliot Jay Stocks by adding in some standard accessibility components into the Starkers theme. That's where I am at the moment and I am wondering what features I would like to include. Off the top of my head I might add in:</p>
+<ol>
+<li>Skip menu and access keys - hidden by css but accessible to keyboard and screen reader users</li>
+<li>Style sheet switcher - to enable a high contrast layout</li>
+<li>An accessibility guide for the website</li>
+</ol>
+<h2 id="your-feedback" tabindex="-1"><a class="header-anchor" href="#your-feedback"><span>Your feedback</span></a></h2>
+<p>Is there anything you think should be included, or not included in such a  theme. I'd love to hear your feedback</p>
+
+    </div>
+  </div>
+
+</main>
+
+<footer>
+<div class="py-8 border-t-2 pb-16 md:flex md:justify-between md:items-end">
+  <div>
+    <h2 class="text-2xl font-semibold">Get in touch</h2>
+    <p class="mt-2 text-lg">Open to Senior and Lead Product Designer and Design Engineer roles, permanent or contract. CV available on request.</p>
+    <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-lg font-medium">
+      <li><a class="underline" href="mailto:email@alstevens.co.uk">email@alstevens.co.uk</a></li>
+      <li><a class="underline" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+    </ul>
+  </div>
+  <div class="mt-8 md:mt-0 md:ml-8 flex-none text-base opacity-60">© 2026 Alexander Stevens</div>
+</div>
+</footer>
+
+</div>
+
+
+  <script>
+    if (isDarkMode()) {
+      document.getElementById("toggleDarkMode").classList.add('md-dark');
+      document.getElementById("toggleDarkMode").classList.remove('md-light');
+    }
+
+    document.getElementById("toggleDarkMode").addEventListener("click", function() {
+      if (isDarkMode()) {
+        localStorage.theme = 'light'
+        document.documentElement.classList.remove('dark')
+        document.getElementById("toggleDarkMode").classList.remove('md-dark');
+        document.getElementById("toggleDarkMode").classList.add('md-light');
+      } else {
+        localStorage.theme = 'dark'
+        document.documentElement.classList.add('dark')
+        document.getElementById("toggleDarkMode").classList.add('md-dark');
+        document.getElementById("toggleDarkMode").classList.remove('md-light');
+      }
+    });
+  </script>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  	<meta name='viewport' content='width=device-width'>
+
+    <title>Making google analytics unobtrusive</title>
+    <meta name='description' content="Whenever I implement a new tracking script it always strikes me how obtrusive the scripts tend to be. A proposal to make it un-obtrusive.">
+    <meta name="theme-color" content="#ffffff"/>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json" />
+
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+    <link href="/assets/styles/tailwind.css" rel="stylesheet" />
+    <link href="/assets/styles/index.css" rel="stylesheet" />
+    <script>
+      const isDarkMode = () => localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      // Set the theme before the body renders to avoid a flash; the toggle icon is set at the end of the body
+      if (isDarkMode()) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J096MER4MD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J096MER4MD');
+    </script>
+
+  </head>
+
+  <body class="dark:text-white dark:bg-black">
+    
+<div class="container mx-auto px-4 xl:px-8">
+<div class="flex py-2 pt-12">
+  <div class="text-3xl font-semibold flex-none homelink"><a href="/">Alexander Stevens</a></div>
+  <div class="flex-auto self-end flex flex-row-reverse"><span class="lm md-light cursor-pointer" id="toggleDarkMode">Dark mode</span></div>
+</div>
+<main>
+  
+<nav>
+  <ul class="nav flex border-b-2 py-4">
+    <li><a class="text-l pr-6" href="/">Work</a></li>
+    <li><a class="text-l pr-6" href="/journal/">Journal</a></li>
+    <li><a class="text-l pr-6" href="/about/">About</a></li>
+    <li><a class="text-l pr-6" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+  </ul>
+</nav>
+
+
+  <div class="pr-16 pt-12 text-3xl lg:text-7xl font-semibold leading-10">
+      <h1>
+      Making google analytics unobtrusive
+      </h1>
+  </div>
+  <div class="nav text-md py-4 pb-12">
+    
+      <span>2008-07-20</span> &mdash;
+    
+      <span>13 min read</span>
+  </div>
+
+  <div class="">
+    <div class="prose dark:prose-invert text-l xl:text-xl leading-6 xl:leading-9 font-book pb-8">
+      <p>Whenever I implement a new tracking script it always strikes me how obtrusive the scripts tend to be. They tend to put the script either at the start or the end of the document body, and they tend to use nasty document.writes. I love google analytics but sadly on this count it is no different. In this article I look at implementing google analytics in a less obtrusive way.</p>
+<p>You may wonder why I would want to look at the implementation of something which does wholly what it sets out to do, so I will start by explaining just a little about how I think the implementation should work.</p>
+<ol>
+<li>In order to create a manageable code base I want to make sure the javascript is located in just one place. That is to say, if I want to modify the code at some point, I want to do it in just one place</li>
+<li>In order to re-use the code I want it to be easily transferrable, without heavy code re-writes</li>
+<li>To maintain the integrity of my website I want the behaviour (javascript) to be seperated from the content (html), just in the same way that we do with layout (css) and content (html)</li>
+<li>Should heaven forbid, google's servers fail to respond quickly I don't want it to delay the loading of the whole webpage. This could be a point of contention for some people as if the webpage loads without the analytics script, and a person navigates away to another page, then we have not tracked them. Not good. I would question those worried about this scenario as follows: Which is more important in helping the person fulfill their objectives on your website, the tracking script, or the ability to use your pages as they are meant to be used without waiting. I think the answer is clear.NOTE: Your tracking script provider might have some issue with this. I have heard of in some cases the preference for the tracking script to be after the opening body tag. I think however that you need to think about the people who use your website rather than the ability to track their movements. Having the script in line might also help providers maintain a 99.9% uptime record, since if their server is down their script will stop your page loading. This in turn will make you less likely to navigate to a new page, which will mean that in theory at least, the server has been down less.</li>
+</ol>
+<h2 id="so-how-do-we-achieve-this" tabindex="-1"><a class="header-anchor" href="#so-how-do-we-achieve-this"><span>So how do we achieve this</span></a></h2>
+<p>Simple really, using DomScripting methods we will</p>
+<ul>
+<li>seperate the javascript into it's own file (This fulfills 1,2 and 3)</li>
+<li>call the javascript on page load instead of in line (This fulfills point 4)</li>
+</ul>
+<h2 id="step-1---grab-your-starting-code" tabindex="-1"><a class="header-anchor" href="#step-1---grab-your-starting-code"><span>Step 1 - grab your starting code</span></a></h2>
+<p>In my case I was provided with the following code by Google Analytics</p>
+<pre class="language-js"><code class="language-js"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span><br><span class="token keyword">var</span> gaJsHost <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"https:"</span> <span class="token operator">==</span> document<span class="token punctuation">.</span>location<span class="token punctuation">.</span>protocol<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">"https://ssl."</span> <span class="token operator">:</span> <span class="token string">"http://www."</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token function">unescape</span><span class="token punctuation">(</span><span class="token string">"%3Cscript src='"</span> <span class="token operator">+</span> gaJsHost <span class="token operator">+</span> <span class="token string">"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><br><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span><br><span class="token keyword">var</span> pageTracker <span class="token operator">=</span> _gat<span class="token punctuation">.</span><span class="token function">_getTracker</span><span class="token punctuation">(</span><span class="token string">"UA-999999-1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>pageTracker<span class="token punctuation">.</span><span class="token function">_initData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>pageTracker<span class="token punctuation">.</span><span class="token function">_trackPageview</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+<p>There are two parts to this script. The first actually loads an external .js file from google using the nasty document.write. The reason it loads it in using javascript is that the script is determining whether it resides on a secure server or not. This resolves any issues with 'mixed' security error messages on secure servers.</p>
+<p>The second part assigns your unique user id and calls a couple of functions from the tracking code</p>
+<h2 id="step-2---putting-it-all-in-one-script" tabindex="-1"><a class="header-anchor" href="#step-2---putting-it-all-in-one-script"><span>Step 2 - putting it all in one script</span></a></h2>
+<p>So the first thing we need to do is create a script and insert it into the head of your document. (Or wherever you are importing the rest of your scripts)</p>
+<pre class="language-js"><code class="language-js"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> src<span class="token operator">=</span><span class="token string">"/wordpress/wp-content/themes/default/js/googleAnalytics.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+<h2 id="step-3---heres-the-codey-bit" tabindex="-1"><a class="header-anchor" href="#step-3---heres-the-codey-bit"><span>Step 3 - heres the codey bit</span></a></h2>
+<p>The first thing we need in our code is a function that will call the Google Analytics function on the <a href="http://en.wikipedia.org/wiki/DOM_Events">DOM event</a> of page load. There are lots of references out on the web detailing scripts which allow multiple onLoad functions to be called, and I believe that the one used here is based on <a href="http://simonwillison.net/2004/May/26/addLoadEvent/">Simon Willisons addLoadEvent script</a>. This script is a function that that you can call, to in turn call other functions on page load:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">/* Simplifies onload, you will no longer have to add an onload event call just call addLoadEvent */</span><br><span class="token keyword">function</span> <span class="token function">addLoadEvent</span><span class="token punctuation">(</span><span class="token parameter">func<span class="token punctuation">,</span>arg</span><span class="token punctuation">)</span><span class="token punctuation">{</span><br><br><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>arg<span class="token punctuation">)</span><span class="token punctuation">{</span><br>  <span class="token keyword">var</span> oldonload <span class="token operator">=</span> window<span class="token punctuation">.</span>onload<span class="token punctuation">;</span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window<span class="token punctuation">.</span>onload <span class="token operator">!=</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    window<span class="token punctuation">.</span>onload <span class="token operator">=</span> func<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><br>    window<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      <span class="token function">oldonload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>      <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><span class="token punctuation">}</span><br>  <span class="token keyword">else</span><span class="token punctuation">{</span><span class="token comment">/*if the onload event has an argument/parameter cater for that*/</span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">{</span><br>  oldonload <span class="token operator">=</span> window<span class="token punctuation">.</span>onload<span class="token punctuation">;</span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window<span class="token punctuation">.</span>onload <span class="token operator">!=</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    window<span class="token punctuation">.</span>onload <span class="token operator">=</span> <span class="token function">func</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>     window<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      <span class="token function">oldonload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>      <span class="token function">func</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>Now we have a function which can call our analytics function on load we just need to convert the javascript to make it a littel less obtrusive. The more tricly bit involves loading the external js file which I mentioned earlier in part one. For this we create a function which appends the script to the head of the document. This script is called immediately</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">loadGAScript</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><br>    <span class="token comment">/*Check browser for Dom compatibility*/</span><br><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>document<span class="token punctuation">.</span>getElementsByTagName<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span><br><span class="token comment">/*Determines whether the page is using a secure or unsecure protocol*/</span><br><span class="token keyword">var</span> gaJsHost <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"https:"</span> <span class="token operator">==</span> document<span class="token punctuation">.</span>location<span class="token punctuation">.</span>protocol<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">"https://ssl."</span> <span class="token operator">:</span> <span class="token string">"http://www."</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token comment">/*Writes in the script to the document head*/</span><br><span class="token keyword">var</span> gaScript <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">"script"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>gaScript<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"src"</span><span class="token punctuation">,</span>gaJsHost <span class="token operator">+</span><span class="token string">"google-analytics.com/ga.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>gaScript<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"type"</span><span class="token punctuation">,</span><span class="token string">"text/javascript"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">var</span> domHead <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"head"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><br>domHead<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>gaScript<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br>    <span class="token function">loadGAScript</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>We then just need to call 'part two' of the script on page load. SO we create a function out of it:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">/*Calls the analytics function*/</span><br><span class="token keyword">function</span> <span class="token function">callGA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>   <br><span class="token keyword">var</span> pageTracker <span class="token operator">=</span> _gat<span class="token punctuation">.</span><span class="token function">_getTracker</span><span class="token punctuation">(</span><span class="token string">"UA-999999-1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>pageTracker<span class="token punctuation">.</span><span class="token function">_initData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>pageTracker<span class="token punctuation">.</span><span class="token function">_trackPageview</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>and then once the dom has loaded we will call this function</p>
+<pre class="language-js"><code class="language-js"><span class="token function">addLoadEvent</span><span class="token punctuation">(</span>callGA<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3>Putting it all together</h3>
+<p>So heres the easy bit.</p>
+<ul>
+<li>Download the <a href="http://www.alstevens.co.uk/downloads/googleAnalytics.js">javascript file</a></li>
+<li>Add a reference to the script in your document</li>
+<li>Customise your user id</li>
+</ul>
+<p>and you're done</p>
+
+    </div>
+  </div>
+
+</main>
+
+<footer>
+<div class="py-8 border-t-2 pb-16 md:flex md:justify-between md:items-end">
+  <div>
+    <h2 class="text-2xl font-semibold">Get in touch</h2>
+    <p class="mt-2 text-lg">Open to Senior and Lead Product Designer and Design Engineer roles, permanent or contract. CV available on request.</p>
+    <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-lg font-medium">
+      <li><a class="underline" href="mailto:email@alstevens.co.uk">email@alstevens.co.uk</a></li>
+      <li><a class="underline" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+    </ul>
+  </div>
+  <div class="mt-8 md:mt-0 md:ml-8 flex-none text-base opacity-60">© 2026 Alexander Stevens</div>
+</div>
+</footer>
+
+</div>
+
+
+  <script>
+    if (isDarkMode()) {
+      document.getElementById("toggleDarkMode").classList.add('md-dark');
+      document.getElementById("toggleDarkMode").classList.remove('md-light');
+    }
+
+    document.getElementById("toggleDarkMode").addEventListener("click", function() {
+      if (isDarkMode()) {
+        localStorage.theme = 'light'
+        document.documentElement.classList.remove('dark')
+        document.getElementById("toggleDarkMode").classList.remove('md-dark');
+        document.getElementById("toggleDarkMode").classList.add('md-light');
+      } else {
+        localStorage.theme = 'dark'
+        document.documentElement.classList.add('dark')
+        document.getElementById("toggleDarkMode").classList.add('md-dark');
+        document.getElementById("toggleDarkMode").classList.remove('md-light');
+      }
+    });
+  </script>
+  </body>
+</html>

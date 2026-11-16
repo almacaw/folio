@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  	<meta name='viewport' content='width=device-width'>
+
+    <title>Product design for new B2C/B2B2C SAAS app from conception to realisation</title>
+    <meta name='description' content="Case study by UX and Product Designer on taking a product idea from conception to realisation">
+    <meta name="theme-color" content="#ffffff"/>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json" />
+
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+    <link href="/assets/styles/tailwind.css" rel="stylesheet" />
+    <link href="/assets/styles/index.css" rel="stylesheet" />
+    <script>
+      const isDarkMode = () => localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      // Set the theme before the body renders to avoid a flash; the toggle icon is set at the end of the body
+      if (isDarkMode()) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J096MER4MD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J096MER4MD');
+    </script>
+
+  </head>
+
+  <body class="dark:text-white dark:bg-black">
+    
+<div class="container mx-auto px-4 xl:px-8">
+<div class="flex py-2 pt-12">
+  <div class="text-3xl font-semibold flex-none homelink"><a href="/">Alexander Stevens</a></div>
+  <div class="flex-auto self-end flex flex-row-reverse"><span class="lm md-light cursor-pointer" id="toggleDarkMode">Dark mode</span></div>
+</div>
+<main>
+  
+<nav>
+  <ul class="nav flex border-b-2 py-4">
+    <li><a class="text-l pr-6" href="/">Work</a></li>
+    <li><a class="text-l pr-6" href="/journal/">Journal</a></li>
+    <li><a class="text-l pr-6" href="/about/">About</a></li>
+    <li><a class="text-l pr-6" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+  </ul>
+</nav>
+
+<div class="pt-16">
+  <h1 class="text-3xl lg:text-7xl font-semibold leading-tight">
+  Product design for new B2C/B2B2C SAAS app from conception to realisation
+  </h1>
+</div>
+<div class="nav text-md pt-8">
+  
+    <span>2024-08-01</span> &mdash;
+  
+    <span>17 min read</span>
+
+
+</div>
+
+<div class="py-8 text-xl">
+  
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/8PSgCIw6BW-320.jpeg 320w, /img/8PSgCIw6BW-640.jpeg 640w, /img/8PSgCIw6BW-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/8PSgCIw6BW-320.png 320w, /img/8PSgCIw6BW-640.png 640w, /img/8PSgCIw6BW-960.png 960w" sizes="100vw">
+      <img
+        src="/img/8PSgCIw6BW-320.jpeg"
+        alt="Diagram of user need on post its"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>High level user needs for the Auderli product</figcaption>
+    </figure>
+</div>
+
+
+<div class="prose dark:prose-invert text-l xl:text-xl leading-6 xl:leading-9 font-book py-8 xl:py-16">
+
+  <p>Auderli is a startup that focuses on personal finances. The app provides users with a secure space to organise and share important life information.</p>
+<h2 id="my-role" tabindex="-1"><a class="header-anchor" href="#my-role"><span>My role</span></a></h2>
+<p>As the designer on the team, I joined at the very beginning. I worked closely with a CTO, engineers, and a Product Owner. Together, our goal was to design and build the app from the ground up. We focused on delivering a top tier UX using lean/agile, releasing an MVP early and releasing updates regularly, learning as much as we could along the way.</p>
+<h2 id="understanding-and-mapping-the-founder%E2%80%99s-vision" tabindex="-1"><a class="header-anchor" href="#understanding-and-mapping-the-founder%E2%80%99s-vision"><span>Understanding and Mapping the Founder’s Vision</span></a></h2>
+<p>Our founder, who is both an accountant and an entrepreneur, had a clear vision for a product that addresses specific needs he has observed while working with people’s personal finances. By understanding this vision and mapping it out at a high level, as well as identifying key user profiles, we were able to begin with the end goal in mind. This was our North Star. Having this allowed me to regularly take a step back and gain a broader perspective before diving into the details of individual stories.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/uxE4rQOcvG-320.jpeg 320w, /img/uxE4rQOcvG-640.jpeg 640w, /img/uxE4rQOcvG-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/uxE4rQOcvG-320.png 320w, /img/uxE4rQOcvG-640.png 640w, /img/uxE4rQOcvG-960.png 960w" sizes="100vw">
+      <img
+        src="/img/uxE4rQOcvG-320.jpeg"
+        alt="Screenshots of wiki page and user experience map"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Story maps, high level flows and personas documented in the internal wiki</figcaption>
+    </figure>
+<h2 id="early-prototypes" tabindex="-1"><a class="header-anchor" href="#early-prototypes"><span>Early prototypes</span></a></h2>
+<p>The app has some basic features that are used repeatedly to create a consistent and cohesive user experience. I created early prototypes of the app to test with potential customers to make sure the user experience was on the right track. This testing also helped us confirm some of our early assumptions and statements from the founders. <a href="https://www.figma.com/proto/ahCju86yq6wS2qJJ7XW2ox/---Add-assets?page-id=546%3A0&amp;node-id=546-544&amp;viewport=745%2C438%2C0.04&amp;t=lujPcGmIB1I5yNxR-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=546%3A544&amp;show-proto-sidebar=1">Early prototype in Figma</a></p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/ttwTegAlB9-320.jpeg 320w, /img/ttwTegAlB9-640.jpeg 640w, /img/ttwTegAlB9-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/ttwTegAlB9-320.png 320w, /img/ttwTegAlB9-640.png 640w, /img/ttwTegAlB9-960.png 960w" sizes="100vw">
+      <img
+        src="/img/ttwTegAlB9-320.jpeg"
+        alt="Two screenshots of app prototype"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Early prototype which we remote tested with several potential users</figcaption>
+    </figure>
+<h2 id="working-with-story-maps" tabindex="-1"><a class="header-anchor" href="#working-with-story-maps"><span>Working with story maps</span></a></h2>
+<p>Through trial and error we discovered that using story maps was really helpful in dealing with the the large number of user stories. It allowed us to explore various scenarios and, most importantly, helped us simplify and prioritize them into actionable stories.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/WWneSps4Yg-320.jpeg 320w, /img/WWneSps4Yg-640.jpeg 640w, /img/WWneSps4Yg-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/WWneSps4Yg-320.png 320w, /img/WWneSps4Yg-640.png 640w, /img/WWneSps4Yg-960.png 960w" sizes="100vw">
+      <img
+        src="/img/WWneSps4Yg-320.jpeg"
+        alt="Screenshot of Miro board"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Story map in Miro</figcaption>
+    </figure>
+<h2 id="starting-%E2%80%98low-fi%E2%80%99" tabindex="-1"><a class="header-anchor" href="#starting-%E2%80%98low-fi%E2%80%99"><span>Starting ‘low-fi’</span></a></h2>
+<p>As someone who strongly believes in receiving feedback early and frequently, all major pieces of work start with low-fidelity sketches and flows. These are shared through Slack/Teams. If they are a bit more complex, I will provide a loom video walkthrough for the team to review and provide feedback at their own pace or discuss in person. For each “feature,” I create a Teams/Slack channel where designs can be shared and discussed.</p>
+<p>This approach has helped us iterate quickly on designs and minimise design waste in more exploratory work. This helps the team quickly estimate the size and prioritise and break up larger areas of work.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/eKGDvJD0Uc-320.jpeg 320w, /img/eKGDvJD0Uc-640.jpeg 640w, /img/eKGDvJD0Uc-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/eKGDvJD0Uc-320.png 320w, /img/eKGDvJD0Uc-640.png 640w, /img/eKGDvJD0Uc-960.png 960w" sizes="100vw">
+      <img
+        src="/img/eKGDvJD0Uc-320.jpeg"
+        alt="Composite of sketch in background and website screenshot in foreground"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Comparing an initial sketch of the professionals website page with the live screenshot</figcaption>
+    </figure>
+<p>I may also create a prototype with or without a loom walkthrough to communicate more complex designs</p>
+<div style="position: relative; padding-bottom: 94.07665505226481%; height: 0;"><iframe src="https://www.loom.com/embed/3147d4a5f67c45db99b7c204c8673061?sid=a59853bd-0f63-4a51-9d40-a4e738256587" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<h2 id="prototyping-where-necessary" tabindex="-1"><a class="header-anchor" href="#prototyping-where-necessary"><span>Prototyping where necessary</span></a></h2>
+<p>For more complex designs I might create a high fidelity prototype with a walkthrough of the features. At this point I sometimes share a <a href="https://www.loom.com/share/47994b17954a4ef78b65e03476e0dd44">Loom video</a> to walk through the feature. this gives developers time to review the new functionality before we discuss it and make refinements in refinement meetings.</p>
+<div class="flex content-center"><iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" src="https://embed.figma.com/proto/JujuXU5WkNIXF7FloXvkNB/Help-tax-advisers-advise-their-clients-better?page-id=312%3A15004&node-id=312-15005&node-type=canvas&m=dev&scaling=scale-down&content-scaling=fixed&starting-point-node-id=312%3A15005&embed-host=share" width="800" height="450" allowfullscreen="allowfullscreen"></iframe></div>
+<h2 id="creating-high-fidelity-mockups-for-the-engineering-team-to-build-and-estimate" tabindex="-1"><a class="header-anchor" href="#creating-high-fidelity-mockups-for-the-engineering-team-to-build-and-estimate"><span>Creating high fidelity mockups for the Engineering team to build and estimate</span></a></h2>
+<p>Using Figma and either a file or a page for each user story we were able to use detailed designs to provide estimates for engineering effort. Normally we would discuss and review a design as a team, before estimating the delivery effort and or breaking it down further. This was central for the teams ability to plan Sprints and deliver features. The designs can include detailed annotated up designs when extra detail os needed over and above the BDD which is created from the designs and used for acceptance testing.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/zNK-l-lmpA-320.jpeg 320w, /img/zNK-l-lmpA-640.jpeg 640w, /img/zNK-l-lmpA-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/zNK-l-lmpA-320.png 320w, /img/zNK-l-lmpA-640.png 640w, /img/zNK-l-lmpA-960.png 960w" sizes="100vw">
+      <img
+        src="/img/zNK-l-lmpA-320.jpeg"
+        alt="Screenshot of Figma file"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Designs will generally consist of a set of screens per user story</figcaption>
+    </figure>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/a3jTPlx8jd-320.jpeg 320w, /img/a3jTPlx8jd-640.jpeg 640w, /img/a3jTPlx8jd-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/a3jTPlx8jd-320.png 320w, /img/a3jTPlx8jd-640.png 640w, /img/a3jTPlx8jd-960.png 960w" sizes="100vw">
+      <img
+        src="/img/a3jTPlx8jd-320.jpeg"
+        alt="Screenshot of Figma file"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Designs are discussed and critiqued in refinement</figcaption>
+    </figure>
+<h2 id="building-a-brand%2C-website-and-design-system" tabindex="-1"><a class="header-anchor" href="#building-a-brand%2C-website-and-design-system"><span>Building a brand, website and design system</span></a></h2>
+<p>We wanted Auderli to have a strong brand which should be approachable, accessible to all and soften the difficult subject of death tech. We worked with a brand agency to help us create the identity and which has then evolved in the app and website.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/7Pebppt9Iv-320.jpeg 320w, /img/7Pebppt9Iv-640.jpeg 640w, /img/7Pebppt9Iv-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/7Pebppt9Iv-320.png 320w, /img/7Pebppt9Iv-640.png 640w, /img/7Pebppt9Iv-960.png 960w" sizes="100vw">
+      <img
+        src="/img/7Pebppt9Iv-320.jpeg"
+        alt="App store screenshots"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Artwork created for the App store information</figcaption>
+    </figure>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/Y7XltyirI--320.jpeg 320w, /img/Y7XltyirI--640.jpeg 640w, /img/Y7XltyirI--960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/Y7XltyirI--320.png 320w, /img/Y7XltyirI--640.png 640w, /img/Y7XltyirI--960.png 960w" sizes="100vw">
+      <img
+        src="/img/Y7XltyirI--320.jpeg"
+        alt="Composition of various screenshots showing brand"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>The app and website have a unique and consistent brand look and feel</figcaption>
+    </figure>
+<h2 id="an-early-design-system" tabindex="-1"><a class="header-anchor" href="#an-early-design-system"><span>An early design system</span></a></h2>
+<p>A design system for Auderli has been created using a Figma component library. This initially focussed on basic brand elements. Colour, typography, buttons, form elements and icons and illustrations.</p>
+<p>As more complex components have taken shape these have been added and the component library has grown and evolved. The approach is inspired by the Brad Frost approach of beginning with base level Atoms and building combination components out of more basic building blocks.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/WtUSiR2nQo-320.jpeg 320w, /img/WtUSiR2nQo-640.jpeg 640w, /img/WtUSiR2nQo-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/WtUSiR2nQo-320.png 320w, /img/WtUSiR2nQo-640.png 640w, /img/WtUSiR2nQo-960.png 960w" sizes="100vw">
+      <img
+        src="/img/WtUSiR2nQo-320.jpeg"
+        alt="Wiki screenshots"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>A very zoomed out view of the evolving library of components</figcaption>
+    </figure>
+<h2 id="documenting-design-decisions" tabindex="-1"><a class="header-anchor" href="#documenting-design-decisions"><span>Documenting design decisions</span></a></h2>
+<p>So often painstaking design decisions can get lost in the passage of time. To help build a solid design foundation I believe that documenting design decisions, design research and creating guides (For example: Writing for interfaces) as we go will help us in the future understand why decisions were made.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/LH-XjT18Gf-320.jpeg 320w, /img/LH-XjT18Gf-640.jpeg 640w, /img/LH-XjT18Gf-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/LH-XjT18Gf-320.png 320w, /img/LH-XjT18Gf-640.png 640w, /img/LH-XjT18Gf-960.png 960w" sizes="100vw">
+      <img
+        src="/img/LH-XjT18Gf-320.jpeg"
+        alt="Screenshot of large Figma canvas"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Pages in the wiki for design research, flows, competitor research and how we capture data</figcaption>
+    </figure>
+<h2 id="tooling-and-collabration" tabindex="-1"><a class="header-anchor" href="#tooling-and-collabration"><span>Tooling and collabration</span></a></h2>
+<p>My primary design tool was Figma. I created a design system early for atomic elements and built the pattern library slowly as UI patterns became more established. I organise the Figma files by Objectives. For each long term objective I create a design file, and for each individual story a page which is linked to from individual stories. Where necessary prototypes are included.</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UI Design</td>
+<td>Figma</td>
+</tr>
+<tr>
+<td>Animated elements</td>
+<td>Lottiefiles</td>
+</tr>
+<tr>
+<td>Prototyping</td>
+<td>Figma</td>
+</tr>
+<tr>
+<td>Storymapping</td>
+<td>Miro</td>
+</tr>
+<tr>
+<td>Product backlog</td>
+<td>Azure</td>
+</tr>
+<tr>
+<td>Collaboration</td>
+<td>Teams/Loom</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tech-stack" tabindex="-1"><a class="header-anchor" href="#tech-stack"><span>Tech stack</span></a></h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Website</td>
+<td>Gatsby/Netlify, Webflow</td>
+</tr>
+<tr>
+<td>Tracking</td>
+<td>GA, Heap, Hubspot</td>
+</tr>
+<tr>
+<td>Payments</td>
+<td>Chargebee</td>
+</tr>
+<tr>
+<td>Customer management/CRM</td>
+<td>Hubspot</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Auth0</td>
+</tr>
+<tr>
+<td>App FE</td>
+<td>React/MUI</td>
+</tr>
+</tbody>
+</table>
+<h2 id="learnings" tabindex="-1"><a class="header-anchor" href="#learnings"><span>Learnings</span></a></h2>
+<p>The agile process can help prevent designers boiling the ocean. As a UX designer I want to define everything up front. I think it’s part of our nature to control everything and make everything perfect. We must think of every scenario, every user need, every combination…It can be exhausting but we persevere and we get there in the end. Delivering a well thought out complex intertwined system.</p>
+<p>In practice this method is fraught with difficulties. We either get stuck in analysis paralysis or we take large amounts of time defining everything up-front, only to find a few weeks after the first iteration model that new scenarios and learnings crop up.</p>
+<p>Auderli has helped me ‘let go’, by focussing on working on a single feature thoughtfully and methodically, without trying to engineer the entire system at once. Accepting that change will happen, and seeing how our beliefs of the entire system evolve as a result has been liberating.</p>
+<p>Story maps are a great way of organising user needs and stories.
+Getting everything down on a story map allowed me to make sure we had covered off all scenarios and all needs, allowing us to prioritise the most important whilst having a running document of what user needs were still missing.</p>
+<p>Sticking to the minimum needed allowed us to deliver value very quickly. For example we shipped paid subscriptions in a few weeks. This could have taken a great deal longer, had we covered every scenario and every combination of edge case scenarios. Being able to deal with these edge cases later meant that we were able to deliver customer value incredibly quickly.</p>
+
+  <a href="/">Back to case studies ⤴</a>
+</div>
+
+</main>
+
+<footer>
+<div class="py-8 border-t-2 pb-16 md:flex md:justify-between md:items-end">
+  <div>
+    <h2 class="text-2xl font-semibold">Get in touch</h2>
+    <p class="mt-2 text-lg">Open to Senior and Lead Product Designer and Design Engineer roles, permanent or contract. CV available on request.</p>
+    <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-lg font-medium">
+      <li><a class="underline" href="mailto:email@alstevens.co.uk">email@alstevens.co.uk</a></li>
+      <li><a class="underline" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+    </ul>
+  </div>
+  <div class="mt-8 md:mt-0 md:ml-8 flex-none text-base opacity-60">© 2026 Alexander Stevens</div>
+</div>
+</footer>
+
+</div>
+
+
+  <script>
+    if (isDarkMode()) {
+      document.getElementById("toggleDarkMode").classList.add('md-dark');
+      document.getElementById("toggleDarkMode").classList.remove('md-light');
+    }
+
+    document.getElementById("toggleDarkMode").addEventListener("click", function() {
+      if (isDarkMode()) {
+        localStorage.theme = 'light'
+        document.documentElement.classList.remove('dark')
+        document.getElementById("toggleDarkMode").classList.remove('md-dark');
+        document.getElementById("toggleDarkMode").classList.add('md-light');
+      } else {
+        localStorage.theme = 'dark'
+        document.documentElement.classList.add('dark')
+        document.getElementById("toggleDarkMode").classList.add('md-dark');
+        document.getElementById("toggleDarkMode").classList.remove('md-light');
+      }
+    });
+  </script>
+  </body>
+</html>

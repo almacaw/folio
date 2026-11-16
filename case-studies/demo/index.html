@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  	<meta name='viewport' content='width=device-width'>
+
+    <title>UX</title>
+    <meta name='description' content="">
+    <meta name="theme-color" content="#ffffff"/>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json" />
+
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+    <link href="/assets/styles/tailwind.css" rel="stylesheet" />
+    <link href="/assets/styles/index.css" rel="stylesheet" />
+    <script>
+      const isDarkMode = () => localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      // Set the theme before the body renders to avoid a flash; the toggle icon is set at the end of the body
+      if (isDarkMode()) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J096MER4MD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J096MER4MD');
+    </script>
+
+  </head>
+
+  <body class="dark:text-white dark:bg-black">
+    
+<div class="container mx-auto px-4 xl:px-8">
+<div class="flex py-2 pt-12">
+  <div class="text-3xl font-semibold flex-none homelink"><a href="/">Alexander Stevens</a></div>
+  <div class="flex-auto self-end flex flex-row-reverse"><span class="lm md-light cursor-pointer" id="toggleDarkMode">Dark mode</span></div>
+</div>
+<main>
+  
+<nav>
+  <ul class="nav flex border-b-2 py-4">
+    <li><a class="text-l pr-6" href="/">Work</a></li>
+    <li><a class="text-l pr-6" href="/journal/">Journal</a></li>
+    <li><a class="text-l pr-6" href="/about/">About</a></li>
+    <li><a class="text-l pr-6" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+  </ul>
+</nav>
+
+<div class="pt-16">
+  <h1 class="text-3xl lg:text-7xl font-semibold leading-tight">
+  UX
+  </h1>
+</div>
+<div class="nav text-md pt-8">
+  
+    <span>2020-05-01</span> &mdash;
+  
+    <span>7 min read</span>
+
+
+</div>
+
+<div class="py-8 text-xl">
+  
+  <figure class="null">
+  <picture>
+      <source type="image/jpeg" srcset="/img/H1D9qmT2CS-320.jpeg 320w, /img/H1D9qmT2CS-640.jpeg 640w, /img/H1D9qmT2CS-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/H1D9qmT2CS-320.png 320w, /img/H1D9qmT2CS-640.png 640w, /img/H1D9qmT2CS-960.png 960w" sizes="100vw">
+      <img
+        src="/img/H1D9qmT2CS-320.jpeg"
+        alt="Mockups of Auderli app store"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Auderli app store artwork</figcaption>
+    </figure>
+</div>
+
+
+<div class="prose dark:prose-invert text-l xl:text-xl leading-6 xl:leading-9 font-book py-8 xl:py-16">
+
+  <p>Auderli is a startup that focuses on personal finances. The app provides users with a secure space to organize and share important life information.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/H1D9qmT2CS-320.jpeg 320w, /img/H1D9qmT2CS-640.jpeg 640w, /img/H1D9qmT2CS-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/H1D9qmT2CS-320.png 320w, /img/H1D9qmT2CS-640.png 640w, /img/H1D9qmT2CS-960.png 960w" sizes="100vw">
+      <img
+        src="/img/H1D9qmT2CS-320.jpeg"
+        alt="Mailbox"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>An elephant at sunset</figcaption>
+    </figure>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+<h2 id="h2-heading" tabindex="-1"><a class="header-anchor" href="#h2-heading"><span>h2 Heading</span></a></h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+<h3>h3 Heading</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+<h4>h4 Heading</h4>
+<h5>h5 Heading</h5>
+<h6>h6 Heading</h6>
+<h2 id="horizontal-rules" tabindex="-1"><a class="header-anchor" href="#horizontal-rules"><span>Horizontal Rules</span></a></h2>
+<hr>
+<h2 id="emphasis" tabindex="-1"><a class="header-anchor" href="#emphasis"><span>Emphasis</span></a></h2>
+<p><strong>This is bold text</strong></p>
+<p><strong>This is bold text</strong></p>
+<p><em>This is italic text</em></p>
+<p><em>This is italic text</em></p>
+<p><s>Strikethrough</s></p>
+<h2 id="blockquotes" tabindex="-1"><a class="header-anchor" href="#blockquotes"><span>Blockquotes</span></a></h2>
+<blockquote>
+<p>Blockquotes can also be nested...</p>
+<blockquote>
+<p>...by using additional greater-than signs right next to each other...</p>
+<blockquote>
+<p>...or with spaces between arrows.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="lists" tabindex="-1"><a class="header-anchor" href="#lists"><span>Lists</span></a></h2>
+<p>Unordered</p>
+<ul>
+<li>Create a list by starting a line with <code>+</code>, <code>-</code>, or <code>*</code></li>
+<li>Sub-lists are made by indenting 2 spaces:
+<ul>
+<li>Marker character change forces new list start:
+<ul>
+<li>Ac tristique libero volutpat at</li>
+</ul>
+<ul>
+<li>Facilisis in pretium nisl aliquet</li>
+</ul>
+<ul>
+<li>Nulla volutpat aliquam velit</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Very easy!</li>
+</ul>
+<p>Ordered</p>
+<ol>
+<li>
+<p>Lorem ipsum dolor sit amet</p>
+</li>
+<li>
+<p>Consectetur adipiscing elit</p>
+</li>
+<li>
+<p>Integer molestie lorem at massa</p>
+</li>
+<li>
+<p>You can use sequential numbers...</p>
+</li>
+<li>
+<p>...or keep all the numbers as <code>1.</code></p>
+</li>
+</ol>
+<p>Start numbering with offset:</p>
+<ol start="57">
+<li>foo</li>
+<li>bar</li>
+</ol>
+<h2 id="code" tabindex="-1"><a class="header-anchor" href="#code"><span>Code</span></a></h2>
+<p>Inline <code>code</code></p>
+<p>Indented code</p>
+<pre><code>// Some comments
+line 1 of code
+line 2 of code
+line 3 of code
+</code></pre>
+<p>Block code &quot;fences&quot;</p>
+<pre><code>Sample text here...
+</code></pre>
+<p>Syntax highlighting</p>
+<pre class="language-js"><code class="language-js"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span><br><span class="token keyword">var</span> gaJsHost <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">"https:"</span> <span class="token operator">==</span> document<span class="token punctuation">.</span>location<span class="token punctuation">.</span>protocol<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">"https://ssl."</span> <span class="token operator">:</span> <span class="token string">"http://www."</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token function">unescape</span><span class="token punctuation">(</span><span class="token string">"%3Cscript src='"</span> <span class="token operator">+</span> gaJsHost <span class="token operator">+</span> <span class="token string">"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><br><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span><br><span class="token keyword">var</span> pageTracker <span class="token operator">=</span> _gat<span class="token punctuation">.</span><span class="token function">_getTracker</span><span class="token punctuation">(</span><span class="token string">"UA-999999-1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>pageTracker<span class="token punctuation">.</span><span class="token function">_initData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>pageTracker<span class="token punctuation">.</span><span class="token function">_trackPageview</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+<h2 id="tables" tabindex="-1"><a class="header-anchor" href="#tables"><span>Tables</span></a></h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data</td>
+<td>path to data files to supply the data that will be passed into templates.</td>
+</tr>
+<tr>
+<td>engine</td>
+<td>engine to be used for processing templates. Handlebars is the default.</td>
+</tr>
+<tr>
+<td>ext</td>
+<td>extension to be used for dest files.</td>
+</tr>
+</tbody>
+</table>
+<p>Right aligned columns</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Option</th>
+<th style="text-align:right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">data</td>
+<td style="text-align:right">path to data files to supply the data that will be passed into templates.</td>
+</tr>
+<tr>
+<td style="text-align:right">engine</td>
+<td style="text-align:right">engine to be used for processing templates. Handlebars is the default.</td>
+</tr>
+<tr>
+<td style="text-align:right">ext</td>
+<td style="text-align:right">extension to be used for dest files.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="links" tabindex="-1"><a class="header-anchor" href="#links"><span>Links</span></a></h2>
+<p><a href="http://dev.nodeca.com">link text</a></p>
+<p><a href="http://nodeca.github.io/pica/demo/" title="title text!">link with title</a></p>
+<p>Autoconverted link <a href="https://github.com/nodeca/pica">https://github.com/nodeca/pica</a> (enable linkify to see)</p>
+
+  <a href="/">Back to case studies ⤴</a>
+</div>
+
+</main>
+
+<footer>
+<div class="py-8 border-t-2 pb-16 md:flex md:justify-between md:items-end">
+  <div>
+    <h2 class="text-2xl font-semibold">Get in touch</h2>
+    <p class="mt-2 text-lg">Open to Senior and Lead Product Designer and Design Engineer roles, permanent or contract. CV available on request.</p>
+    <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-lg font-medium">
+      <li><a class="underline" href="mailto:email@alstevens.co.uk">email@alstevens.co.uk</a></li>
+      <li><a class="underline" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+    </ul>
+  </div>
+  <div class="mt-8 md:mt-0 md:ml-8 flex-none text-base opacity-60">© 2026 Alexander Stevens</div>
+</div>
+</footer>
+
+</div>
+
+
+  <script>
+    if (isDarkMode()) {
+      document.getElementById("toggleDarkMode").classList.add('md-dark');
+      document.getElementById("toggleDarkMode").classList.remove('md-light');
+    }
+
+    document.getElementById("toggleDarkMode").addEventListener("click", function() {
+      if (isDarkMode()) {
+        localStorage.theme = 'light'
+        document.documentElement.classList.remove('dark')
+        document.getElementById("toggleDarkMode").classList.remove('md-dark');
+        document.getElementById("toggleDarkMode").classList.add('md-light');
+      } else {
+        localStorage.theme = 'dark'
+        document.documentElement.classList.add('dark')
+        document.getElementById("toggleDarkMode").classList.add('md-dark');
+        document.getElementById("toggleDarkMode").classList.remove('md-light');
+      }
+    });
+  </script>
+  </body>
+</html>

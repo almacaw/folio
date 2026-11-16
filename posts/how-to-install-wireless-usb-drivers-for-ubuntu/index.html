@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  	<meta name='viewport' content='width=device-width'>
+
+    <title>How to install wireless USB drivers for Ubuntu</title>
+    <meta name='description' content=" Solution if Ubuntu does not see your wireless adapter, and there appears to be no way of actually installing it.">
+    <meta name="theme-color" content="#ffffff"/>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json" />
+
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+    <link href="/assets/styles/tailwind.css" rel="stylesheet" />
+    <link href="/assets/styles/index.css" rel="stylesheet" />
+    <script>
+      const isDarkMode = () => localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      // Set the theme before the body renders to avoid a flash; the toggle icon is set at the end of the body
+      if (isDarkMode()) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J096MER4MD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J096MER4MD');
+    </script>
+
+  </head>
+
+  <body class="dark:text-white dark:bg-black">
+    
+<div class="container mx-auto px-4 xl:px-8">
+<div class="flex py-2 pt-12">
+  <div class="text-3xl font-semibold flex-none homelink"><a href="/">Alexander Stevens</a></div>
+  <div class="flex-auto self-end flex flex-row-reverse"><span class="lm md-light cursor-pointer" id="toggleDarkMode">Dark mode</span></div>
+</div>
+<main>
+  
+<nav>
+  <ul class="nav flex border-b-2 py-4">
+    <li><a class="text-l pr-6" href="/">Work</a></li>
+    <li><a class="text-l pr-6" href="/journal/">Journal</a></li>
+    <li><a class="text-l pr-6" href="/about/">About</a></li>
+    <li><a class="text-l pr-6" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+  </ul>
+</nav>
+
+
+  <div class="pr-16 pt-12 text-3xl lg:text-7xl font-semibold leading-10">
+      <h1>
+      How to install wireless USB drivers for Ubuntu
+      </h1>
+  </div>
+  <div class="nav text-md py-4 pb-12">
+    
+      <span>2009-01-04</span> &mdash;
+    
+      <span>10 min read</span>
+  </div>
+
+  <div class="">
+    <div class="prose dark:prose-invert text-l xl:text-xl leading-6 xl:leading-9 font-book pb-8">
+      <p>Problem: Wireless USB  adapter doesn't work on Ubuntu. Belkin and Dynamode wireless adapters</p>
+<p>Background: Since I can neither afford the luxury of an Apple OS or stand any longer the bloated and slow Windows I thought it was about time to try out Linux on a computer at home. Since the majority of use of this home computer will be browser based (and since soon I believe a great deal of applications will be browser based) I figured that there was nothing to stop me giving it a go.</p>
+<!--more-->
+<p>Well I have to say that once I got the installation complete I was most pleased with myself, and very happy with my zippy new computer.</p>
+<blockquote>
+<p>What you will need - Your Ubuntu installation CD - Your windows drivers/hardware drivers cd</p>
+</blockquote>
+<p>It is just fabulous the way that Ubuntu automatically detects all hardware and everything just works automatically - that is - everything except my wireless USB and thus my connection to the internet.</p>
+<p>My wife and I both have a deep seated hate of wires and that combined with a quirky house means that wireless is the only way to go for us.</p>
+<h2 id="unfortunately-ubuntu-simply-did-not-see-my-wireless-adapter%2C-and-there-appeared-to-be-no-way-of-actually-installing-it." tabindex="-1"><a class="header-anchor" href="#unfortunately-ubuntu-simply-did-not-see-my-wireless-adapter%2C-and-there-appeared-to-be-no-way-of-actually-installing-it."><span>Unfortunately Ubuntu simply did not see my wireless adapter, and there appeared to be no way of actually installing it.</span></a></h2>
+<p>In a flustered state I managed to get our other computer online and tried to look up how to get ubuntu to work with a wireless usb and found a wealth of articles, and forum posts, most of which seemed to involve going to the command line and writing an essay in code.</p>
+<p>Of course everything I tried threw errors and exceptions and to this day I have no idea of how to login as 'root'.</p>
+<p>But having looked a little further I found out the solution was fairly simple, so I thought I would write a post on it in the hope it will save somebody a lot of time.</p>
+<p>It might not work for everybody but could be a good place to start before you get your handy dirty in the Terminal window.</p>
+<h2 id="the-solution" tabindex="-1"><a class="header-anchor" href="#the-solution"><span>The solution</span></a></h2>
+<p>You will need to get a few programs running to get your adater working. One is a program which I think controls and 'helps' wireless networking run and the second is a graphical user interface which converses with the first program without the user having to use the command line. Follow these steps</p>
+<ol>
+<li>Go to: System &gt; Administration &gt; Synaptic Package Manager</li>
+<li>Search there for: <a href="http://sourceforge.net/projects/ndiswrapper/">ndiswrapper-utils, ndiswrapper-common</a> and <a href="http://linuxappfinder.com/package/ndisgtk">ndisgtk</a></li>
+<li>If nothing is found then Insert your Ubuntu CD</li>
+<li>You will now need to add the CD to your 'Souces'. In administration 'Manage Sources' and add your cd/dvd</li>
+<li>Now in Synaptic Package Manager click on &quot;Source&quot; (This means the Ubuntu Source CD I think!?)</li>
+<li>Again search for <a href="http://sourceforge.net/projects/ndiswrapper/">ndiswrapper-utils, ndiswrapper-common</a> and <a href="http://linuxappfinder.com/package/ndisgtk">ndisgtk</a></li>
+<li>You should now be able to tick these items and save the Package Manager, which will then install the three programs</li>
+<li>Go to System &gt; Administration &gt; Windows Wireless devices (This is the new program you've just installed ndiskgt thanks to <a href="http://spohlenz.blogspot.com/">Sam Pohlenz</a>)</li>
+<li>Now Click on Insert New Driver</li>
+<li>Insert your cd which came with your wireless device</li>
+<li>Browse to the cd and look for the .inf files.</li>
+<li>Select the .inf file Note: Normally these will be in a config forlder or an inf folder and will probably be oranised by Windows Operating System. I chose Vista driver as this was most recent but with one adapter this didn't work. I think it will probably be a case of 'if at first you don't succeed'</li>
+<li>Install</li>
+</ol>
+<p>Voila, you should see an icon appear next to your volume control which is your Network Manager. This will allow you to select a Network, and tweak your wireless settings.</p>
+<p>If you are at this stage and still Ubuntu des not see your wireless USB it is time to either try another driver, or look for alternative solutions.</p>
+<h2 id="i-could-now-see-the-wireless-networks-but-still-could-not-connect%3F" tabindex="-1"><a class="header-anchor" href="#i-could-now-see-the-wireless-networks-but-still-could-not-connect%3F"><span>I could now see the wireless Networks but still could not connect?</span></a></h2>
+<p>Grr, I was trying to connect to a Secured network using the default WPA/WPA2 connection which worked fine under Windows. I found that by disabling Security on the actual Router (which makes the network unsecure and no passsword is required) I was able to connect.</p>
+<p>This can be done by</p>
+<ol>
+<li>creating a wired ethernet connection to your router</li>
+<li>Logging into your router in your browser (mine was at <a href="http://192.168.1.1">http://192.168.1.1</a>)</li>
+<li>Changing the wireless security option to 'Disabled'</li>
+</ol>
+<p>This is highly unsatisfactory since it means that not only can anyone use my network, but also everything I do online can potentially be detected and intercepted and that in theory someone listening in could get my credit card details.</p>
+<p>I spent a day messing around with the WPA settings and WEP and others but have not yet managed to connect using these protocols.</p>
+<p>So at the moment I have just decided to risk it. I will however be looking for a solution to this asap. If anyone has any suggestions I'd love to know.</p>
+<p>That said I am now connected wirelessly and writing this article on my shiny new Ubuntu OS - lifes good!</p>
+
+    </div>
+  </div>
+
+</main>
+
+<footer>
+<div class="py-8 border-t-2 pb-16 md:flex md:justify-between md:items-end">
+  <div>
+    <h2 class="text-2xl font-semibold">Get in touch</h2>
+    <p class="mt-2 text-lg">Open to Senior and Lead Product Designer and Design Engineer roles, permanent or contract. CV available on request.</p>
+    <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-lg font-medium">
+      <li><a class="underline" href="mailto:email@alstevens.co.uk">email@alstevens.co.uk</a></li>
+      <li><a class="underline" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+    </ul>
+  </div>
+  <div class="mt-8 md:mt-0 md:ml-8 flex-none text-base opacity-60">© 2026 Alexander Stevens</div>
+</div>
+</footer>
+
+</div>
+
+
+  <script>
+    if (isDarkMode()) {
+      document.getElementById("toggleDarkMode").classList.add('md-dark');
+      document.getElementById("toggleDarkMode").classList.remove('md-light');
+    }
+
+    document.getElementById("toggleDarkMode").addEventListener("click", function() {
+      if (isDarkMode()) {
+        localStorage.theme = 'light'
+        document.documentElement.classList.remove('dark')
+        document.getElementById("toggleDarkMode").classList.remove('md-dark');
+        document.getElementById("toggleDarkMode").classList.add('md-light');
+      } else {
+        localStorage.theme = 'dark'
+        document.documentElement.classList.add('dark')
+        document.getElementById("toggleDarkMode").classList.add('md-dark');
+        document.getElementById("toggleDarkMode").classList.remove('md-light');
+      }
+    });
+  </script>
+  </body>
+</html>

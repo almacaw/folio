@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  	<meta name='viewport' content='width=device-width'>
+
+    <title>UX/UI as a design team of one for B2B Business Travel Booking app</title>
+    <meta name='description' content="Case study by UX and Product Designer on working as a design team of one working in an engineering led travel tech company">
+    <meta name="theme-color" content="#ffffff"/>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json" />
+
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+    <link href="/assets/styles/tailwind.css" rel="stylesheet" />
+    <link href="/assets/styles/index.css" rel="stylesheet" />
+    <script>
+      const isDarkMode = () => localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      // Set the theme before the body renders to avoid a flash; the toggle icon is set at the end of the body
+      if (isDarkMode()) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J096MER4MD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J096MER4MD');
+    </script>
+
+  </head>
+
+  <body class="dark:text-white dark:bg-black">
+    
+<div class="container mx-auto px-4 xl:px-8">
+<div class="flex py-2 pt-12">
+  <div class="text-3xl font-semibold flex-none homelink"><a href="/">Alexander Stevens</a></div>
+  <div class="flex-auto self-end flex flex-row-reverse"><span class="lm md-light cursor-pointer" id="toggleDarkMode">Dark mode</span></div>
+</div>
+<main>
+  
+<nav>
+  <ul class="nav flex border-b-2 py-4">
+    <li><a class="text-l pr-6" href="/">Work</a></li>
+    <li><a class="text-l pr-6" href="/journal/">Journal</a></li>
+    <li><a class="text-l pr-6" href="/about/">About</a></li>
+    <li><a class="text-l pr-6" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+  </ul>
+</nav>
+
+<div class="pt-16">
+  <h1 class="text-3xl lg:text-7xl font-semibold leading-tight">
+  UX/UI as a design team of one for B2B Business Travel Booking app
+  </h1>
+</div>
+<div class="nav text-md pt-8">
+  
+    <span>2020-07-01</span> &mdash;
+  
+    <span>16 min read</span>
+
+
+</div>
+
+<div class="py-8 text-xl">
+  
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/w16ofEane9-320.jpeg 320w, /img/w16ofEane9-640.jpeg 640w" sizes="100vw">
+  <source type="image/png" srcset="/img/w16ofEane9-320.png 320w, /img/w16ofEane9-640.png 640w" sizes="100vw">
+      <img
+        src="/img/w16ofEane9-320.jpeg"
+        alt="Mockup of laptop with Click design"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Click travel allows employees and businesses to manage all their travel bookings in one app</figcaption>
+    </figure>
+</div>
+
+
+<div class="prose dark:prose-invert text-l xl:text-xl leading-6 xl:leading-9 font-book py-8 xl:py-16">
+
+  <p>My Role: UX/UI Designer supporting the Product and Engineering team as they transitioned £300 million of business onto their new platform.</p>
+<p>Click were building out features for their new platform ready to migrate their customer base. The platform used the latest tech and thinking to maximise efficiency, speed, scalability and reliability.</p>
+<p>The Head of Product and Engineering recognised the need for design and brought me on board to improve their UI and develop their style guide, as well as help solve more gnarly UX problems as the product teams rolled out new areas of the app.</p>
+<h2 id="the-team" tabindex="-1"><a class="header-anchor" href="#the-team"><span>The Team</span></a></h2>
+<ul>
+<li>Head of Product and Engineering</li>
+<li>Product Owners (5)</li>
+<li>Engineering Team Leads (7)</li>
+<li>Full stack engineers (30)</li>
+<li>UX/UI Designer (me)</li>
+</ul>
+<h2 id="usability-research" tabindex="-1"><a class="header-anchor" href="#usability-research"><span>Usability research</span></a></h2>
+<p>In my first few weeks I organised some Contextual enquiry/field research with one of Click's larger and more vocal clients. I spent the day with their staff and ran a set of moderated user testing sessions. The research exposed a number of weaknesses in the current product areas.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/G5YVdGx4Qg-320.jpeg 320w, /img/G5YVdGx4Qg-640.jpeg 640w, /img/G5YVdGx4Qg-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/G5YVdGx4Qg-320.png 320w, /img/G5YVdGx4Qg-640.png 640w, /img/G5YVdGx4Qg-960.png 960w" sizes="100vw">
+      <img
+        src="/img/G5YVdGx4Qg-320.jpeg"
+        alt="Screenshot of presentation showing Issues from user testing"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Issues and opportunities as identified by Contextual enquiry</figcaption>
+    </figure>
+<p>With all research I shared and presented and shared as widely as possible. Issues are plotted on an Impact /Frequency Matrix which prioritised issues from Low to Critical.</p>
+<p>The user research regarding the UI as a while seemed to suggest that it didn’t create any direct usability issues, although a number of smaller but critical issues were picked up around consistency in navigating backwards and forwards in search results.</p>
+<p>Qualitatively we were also getting feedback from customers using the new system – in the form of NPS scores. I spent some time analysing the NPS feedback and found that we were frequently getting comments using the phrase ‘clunky’. Whilst these customers were clearly dis-satisfied, there was no clear usability problem they had encountered. My hypothesis for this was that there was an Aesthetic/Usability Effect coming into play with our customers.</p>
+<h2 id="understanding-our-customers" tabindex="-1"><a class="header-anchor" href="#understanding-our-customers"><span>Understanding our customers</span></a></h2>
+<p>To understand our users a little better I organised an empathy mapping sessions with stakeholders. We identified 11 different customer profiles through these sessions (4 key customers).</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/rXz2kU9k3V-320.jpeg 320w, /img/rXz2kU9k3V-640.jpeg 640w, /img/rXz2kU9k3V-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/rXz2kU9k3V-320.png 320w, /img/rXz2kU9k3V-640.png 640w, /img/rXz2kU9k3V-960.png 960w" sizes="100vw">
+      <img
+        src="/img/rXz2kU9k3V-320.jpeg"
+        alt="Screenshot of the output from Empathy Mapping"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Empathy mapping helps us understand key pain points for different types of customers. 11 key personas were revealed</figcaption>
+    </figure>
+<p>I was surprised but how complex it was! Through the sessions I was able to flesh these out into user personas which we were able to use for all future product development work.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/q_kI8-GcJI-320.jpeg 320w, /img/q_kI8-GcJI-640.jpeg 640w, /img/q_kI8-GcJI-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/q_kI8-GcJI-320.png 320w, /img/q_kI8-GcJI-640.png 640w, /img/q_kI8-GcJI-960.png 960w" sizes="100vw">
+      <img
+        src="/img/q_kI8-GcJI-320.jpeg"
+        alt="Screenshot of persona Fabrizio"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Persona cards showing primary goals</figcaption>
+    </figure>
+<h2 id="establishing-the-pattern-library" tabindex="-1"><a class="header-anchor" href="#establishing-the-pattern-library"><span>Establishing the pattern library</span></a></h2>
+<p>The engineers had created a living style guide but there were no design assets. I quickly sought to understand how to use/edit and update the html style guide and set to work recreating the components we had in a Figma pattern library.</p>
+<h2 id="providing-a-vision-for-the-future" tabindex="-1"><a class="header-anchor" href="#providing-a-vision-for-the-future"><span>Providing a vision for the future</span></a></h2>
+<p>So that we could get an idea of where we wanted to get to I worked with a small team of senior stakeholders and PMs to product a set of screens – which could highlight where we want to take the product in the future, both from a UX point of view and also a UI point of view. <a href="https://www.loom.com/share/ad9d760712934597a68031bb95669416">See the prototype on Loom</a></p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/LjiGCgclqH-320.jpeg 320w, /img/LjiGCgclqH-640.jpeg 640w, /img/LjiGCgclqH-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/LjiGCgclqH-320.png 320w, /img/LjiGCgclqH-640.png 640w, /img/LjiGCgclqH-960.png 960w" sizes="100vw">
+      <img
+        src="/img/LjiGCgclqH-320.jpeg"
+        alt="Screenshot of design prototype"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>A design prototype was created to provide a vision for the future</figcaption>
+    </figure>
+<h2 id="evolving-the-pattern-library" tabindex="-1"><a class="header-anchor" href="#evolving-the-pattern-library"><span>Evolving the pattern library</span></a></h2>
+<p>As a single designer – and without a dedicated team we weren’t going to radically overhaul the UI overnight. The engineering team were busy shipping features, and they needed my support for that too. This may not have been such a bad thing because users dislike change. Instead I planned to make small incremental improvements to the UI, improving over time. I created a Trello board with potential changes/improvements and rates each based on a combination of Impact, effort and confidence. Those with the highest score were tackled first. I invited engineers and Product Managers to feed into this list too. As the incremental improvements were made so the pattern library and Figma component library were updated an evolved.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/UPZ2PQ4H-u-320.jpeg 320w, /img/UPZ2PQ4H-u-640.jpeg 640w, /img/UPZ2PQ4H-u-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/UPZ2PQ4H-u-320.png 320w, /img/UPZ2PQ4H-u-640.png 640w, /img/UPZ2PQ4H-u-960.png 960w" sizes="100vw">
+      <img
+        src="/img/UPZ2PQ4H-u-320.jpeg"
+        alt="Screenshot of Style guide in Figma"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>The style guide reverse engineered into Figma</figcaption>
+    </figure>
+<h2 id="assisting-pm's-in-larger-areas-of-product-development" tabindex="-1"><a class="header-anchor" href="#assisting-pm's-in-larger-areas-of-product-development"><span>Assisting PM's in larger areas of product development</span></a></h2>
+<p>When the product teams had more gnarly problems to solve I would be involved to help them form design solutions. An example of this was the trains search and book redesign. It was combined with the introduction of e-tickets.</p>
+<h3>Example: Trains redesign</h3>
+<p>We knew from our usability testing/customer research that our trains search results was a source of significant struggle for our users. So we set out to address some of the problems customers faced.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/N-rbn7ZQ9J-320.jpeg 320w, /img/N-rbn7ZQ9J-640.jpeg 640w, /img/N-rbn7ZQ9J-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/N-rbn7ZQ9J-320.png 320w, /img/N-rbn7ZQ9J-640.png 640w, /img/N-rbn7ZQ9J-960.png 960w" sizes="100vw">
+      <img
+        src="/img/N-rbn7ZQ9J-320.jpeg"
+        alt="Screenshot a trains search result"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Original trains search involved choosing outbound and return separately</figcaption>
+    </figure>
+<h3>Problem areas</h3>
+<ol>
+<li>Customers were To-ing and fro-ing in order to find out the best train options</li>
+<li>This was causing significant friction and we even observed customers researching the best trains using other websites to find the best train for them and booking it on Click.</li>
+</ol>
+<ul>
+<li></li>
+</ul>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/a-czGqDvJ--320.jpeg 320w, /img/a-czGqDvJ--640.jpeg 640w, /img/a-czGqDvJ--960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/a-czGqDvJ--320.png 320w, /img/a-czGqDvJ--640.png 640w, /img/a-czGqDvJ--960.png 960w" sizes="100vw">
+      <img
+        src="/img/a-czGqDvJ--320.jpeg"
+        alt="Screenshot a presentation"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Our user research showed that people were really struggling with the backward and forward</figcaption>
+    </figure>
+<h3>Approach</h3>
+<h4>Sketches</h4>
+<p>I initially make a series of sketches and share them with the CTO. The approach is to provide users with a UX they are more familiar with, whilst working within our own constraints.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/1y_4ZOEdUX-320.jpeg 320w, /img/1y_4ZOEdUX-640.jpeg 640w, /img/1y_4ZOEdUX-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/1y_4ZOEdUX-320.png 320w, /img/1y_4ZOEdUX-640.png 640w, /img/1y_4ZOEdUX-960.png 960w" sizes="100vw">
+      <img
+        src="/img/1y_4ZOEdUX-320.jpeg"
+        alt="Photo of sketch book and computer screen"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Starting low fidelity with sketches</figcaption>
+    </figure>
+<h4>Prototype</h4>
+<p>We then created a medium fidelity prototype to show how the interactions and filtering could work. The prototype was tested with customers and we make a couple of iterations.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/5vvje26GLm-320.jpeg 320w, /img/5vvje26GLm-640.jpeg 640w, /img/5vvje26GLm-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/5vvje26GLm-320.png 320w, /img/5vvje26GLm-640.png 640w, /img/5vvje26GLm-960.png 960w" sizes="100vw">
+      <img
+        src="/img/5vvje26GLm-320.jpeg"
+        alt="Screenshots of prototype"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>The work included the introduction of e-tickets</figcaption>
+    </figure>
+<h4>Final designs</h4>
+<p>Through a series of Sprints we create high fidelity designs for the engineers working on the trains team to start building out the new design. The designs certainly included quite a lot of compromise. But it was more important to get something achievable and then iterate than to go for perfection.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/VeTwde-nlQ-320.jpeg 320w, /img/VeTwde-nlQ-640.jpeg 640w, /img/VeTwde-nlQ-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/VeTwde-nlQ-320.png 320w, /img/VeTwde-nlQ-640.png 640w, /img/VeTwde-nlQ-960.png 960w" sizes="100vw">
+      <img
+        src="/img/VeTwde-nlQ-320.jpeg"
+        alt="Screenshots of prototype"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Designs were iterated though sharing with customers and internal discussion</figcaption>
+    </figure>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/eO7zWh1qMJ-320.jpeg 320w, /img/eO7zWh1qMJ-640.jpeg 640w, /img/eO7zWh1qMJ-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/eO7zWh1qMJ-320.png 320w, /img/eO7zWh1qMJ-640.png 640w, /img/eO7zWh1qMJ-960.png 960w" sizes="100vw">
+      <img
+        src="/img/eO7zWh1qMJ-320.jpeg"
+        alt="Screenshots of prototype"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Designs were iterated though sharing with customers and internal discussion</figcaption>
+    </figure>
+<h2 id="outcomes" tabindex="-1"><a class="header-anchor" href="#outcomes"><span>Outcomes</span></a></h2>
+<p>For the trains redesign we were able to observe that the problems encountered with the previous design had been completely removed with the new design.</p>
+<p>As a general rule saw through the iterative development of the design system we observed that comments around clunkiness disappeared – giving confidence that we had addressed the Aesthetic Usability effect issue we were previously seeing During the time the incremental improvements were made we saw a three fold NPS increase for platform users.</p>
+<h2 id="learnings" tabindex="-1"><a class="header-anchor" href="#learnings"><span>Learnings</span></a></h2>
+<p>Having a style guide codebase separate to the main codebase ensures a safe sandbox environment but causes lots of synchronisation issues. We could have save a lot of time by addressing this. Whilst we couldn’t address some of the more systemic design problems the incremental approach did provide great design value and with very little pushback or resentment from users but it would have been great to have pushed it further. Using Bootstrap really did limit us design wise – particularly the 12 column setup.</p>
+
+  <a href="/">Back to case studies ⤴</a>
+</div>
+
+</main>
+
+<footer>
+<div class="py-8 border-t-2 pb-16 md:flex md:justify-between md:items-end">
+  <div>
+    <h2 class="text-2xl font-semibold">Get in touch</h2>
+    <p class="mt-2 text-lg">Open to Senior and Lead Product Designer and Design Engineer roles, permanent or contract. CV available on request.</p>
+    <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-lg font-medium">
+      <li><a class="underline" href="mailto:email@alstevens.co.uk">email@alstevens.co.uk</a></li>
+      <li><a class="underline" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+    </ul>
+  </div>
+  <div class="mt-8 md:mt-0 md:ml-8 flex-none text-base opacity-60">© 2026 Alexander Stevens</div>
+</div>
+</footer>
+
+</div>
+
+
+  <script>
+    if (isDarkMode()) {
+      document.getElementById("toggleDarkMode").classList.add('md-dark');
+      document.getElementById("toggleDarkMode").classList.remove('md-light');
+    }
+
+    document.getElementById("toggleDarkMode").addEventListener("click", function() {
+      if (isDarkMode()) {
+        localStorage.theme = 'light'
+        document.documentElement.classList.remove('dark')
+        document.getElementById("toggleDarkMode").classList.remove('md-dark');
+        document.getElementById("toggleDarkMode").classList.add('md-light');
+      } else {
+        localStorage.theme = 'dark'
+        document.documentElement.classList.add('dark')
+        document.getElementById("toggleDarkMode").classList.add('md-dark');
+        document.getElementById("toggleDarkMode").classList.remove('md-light');
+      }
+    });
+  </script>
+  </body>
+</html>

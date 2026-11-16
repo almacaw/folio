@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  	<meta name='viewport' content='width=device-width'>
+
+    <title>Tracking javascript events unobtrusively with google analytics</title>
+    <meta name='description' content="">
+    <meta name="theme-color" content="#ffffff"/>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json" />
+
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+    <link href="/assets/styles/tailwind.css" rel="stylesheet" />
+    <link href="/assets/styles/index.css" rel="stylesheet" />
+    <script>
+      const isDarkMode = () => localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      // Set the theme before the body renders to avoid a flash; the toggle icon is set at the end of the body
+      if (isDarkMode()) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J096MER4MD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J096MER4MD');
+    </script>
+
+  </head>
+
+  <body class="dark:text-white dark:bg-black">
+    
+<div class="container mx-auto px-4 xl:px-8">
+<div class="flex py-2 pt-12">
+  <div class="text-3xl font-semibold flex-none homelink"><a href="/">Alexander Stevens</a></div>
+  <div class="flex-auto self-end flex flex-row-reverse"><span class="lm md-light cursor-pointer" id="toggleDarkMode">Dark mode</span></div>
+</div>
+<main>
+  
+<nav>
+  <ul class="nav flex border-b-2 py-4">
+    <li><a class="text-l pr-6" href="/">Work</a></li>
+    <li><a class="text-l pr-6" href="/journal/">Journal</a></li>
+    <li><a class="text-l pr-6" href="/about/">About</a></li>
+    <li><a class="text-l pr-6" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+  </ul>
+</nav>
+
+
+  <div class="pr-16 pt-12 text-3xl lg:text-7xl font-semibold leading-10">
+      <h1>
+      Tracking javascript events unobtrusively with google analytics
+      </h1>
+  </div>
+  <div class="nav text-md py-4 pb-12">
+    
+      <span>2008-08-18</span> &mdash;
+    
+      <span>7 min read</span>
+  </div>
+
+  <div class="">
+    <div class="prose dark:prose-invert text-l xl:text-xl leading-6 xl:leading-9 font-book pb-8">
+      <h3>One of the key things I want tracked on my website is those who click on the rss icon and add me to their feed reader. When someone actually clicks on subscribe - hey that means that they like what they have seen and want to read more. I am humbled. I am overjoyed. I have a conversion!<!--more--></h3>
+<p>In <a href="http://www.google.com/analytics/">google analytics</a> you can set up conversion goals, and therefore can quickly see on entry whether you have achieved any of your goals in the last set time period. Normally a goal will be a page, like a thank-you page, but in my case I want to track a link to an xml/rss file, which cannot be tracked by javascript.</p>
+<p>Looking around online there are some examples of tracking rss - although many of them refer to google analytics' old script which calls the function urchin. I need one which calls the newer pageTracker._trackPageview arguement. Most recommend the use of an inline javascript which fires the page tracker onclick. But I have several rss links on my website and I don't want to relpicate this javascript behaviour across all of that code. Otherwise when it comes to changing the code I will need to manually go and update every link with the onclick. Also I want to seperate the behaviour of this javascript from the content of the website.</p>
+<h3>DOMScripting to the rescue</h3>
+<p>The solution to this problem is to use a <a href="http://en.wikipedia.org/wiki/DOM_Events">DOM event</a> to call the function. By adding a class to any links which are used to 'Subscribe' we can write a DOMScript which creates the javascript event on page load.</p>
+<h3>Tracking javascript events</h3>
+<p>So this is what you need to do:</p>
+<ol>
+<li>add a class of &quot;rss&quot; to each instance of the RSS link you want to track</li>
+<li>add the following code to your javascript library</li>
+</ol>
+<pre><code>/* track links with the class of rss */
+function trackRss(){
+if (!document.getElementsByTagName) return false; //added to test the browsers DOM compatibility
+if (!document.getElementsByTagName('a')) return false; //added to test for any divs
+var divs = document.getElementsByTagName('a');
+ for(var i=0,j=divs.length;i&lt;j;i++){
+  if (divs[i].className.match('rss')){ // .match to deal with multiple class names
+   divs[i].onclick = function (){
+		var pageTracker = _gat._getTracker(&quot;UA-XXXXXX-X&quot;); //Enter your Google Analytics account ID here
+		pageTracker._initData();
+		pageTracker._trackPageview(&quot;/rss/subscribe/&quot;);
+   }
+  }
+ }
+}
+</code></pre>
+<p>Note, you will have to add in your urchin tracker ID within the main function at the end of this code. This whole function will now need to be called on page load. I would recommend using an addLoadEvent script like the one below.</p>
+<pre><code>function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+      if (oldonload) {
+        oldonload();
+      }
+      func();
+    }
+  }
+}
+
+addLoadEvent(trackRss);
+</code></pre>
+<p>The result of all of this is that a click on any link with the class &quot;rss&quot; will fire google analytics, and in this example it will read the page as &quot;rss/subscribe&quot; (from the trackPageview)</p>
+<h3>Extensibility</h3>
+<p>I think there may be a way of making this more scaleable by getting one function to handle multiple tracking links. Could it use a rel attribute? So that you assign a class to identify it is a tracked link, and a rel to tell it what to call the link.</p>
+
+    </div>
+  </div>
+
+</main>
+
+<footer>
+<div class="py-8 border-t-2 pb-16 md:flex md:justify-between md:items-end">
+  <div>
+    <h2 class="text-2xl font-semibold">Get in touch</h2>
+    <p class="mt-2 text-lg">Open to Senior and Lead Product Designer and Design Engineer roles, permanent or contract. CV available on request.</p>
+    <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-lg font-medium">
+      <li><a class="underline" href="mailto:email@alstevens.co.uk">email@alstevens.co.uk</a></li>
+      <li><a class="underline" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+    </ul>
+  </div>
+  <div class="mt-8 md:mt-0 md:ml-8 flex-none text-base opacity-60">© 2026 Alexander Stevens</div>
+</div>
+</footer>
+
+</div>
+
+
+  <script>
+    if (isDarkMode()) {
+      document.getElementById("toggleDarkMode").classList.add('md-dark');
+      document.getElementById("toggleDarkMode").classList.remove('md-light');
+    }
+
+    document.getElementById("toggleDarkMode").addEventListener("click", function() {
+      if (isDarkMode()) {
+        localStorage.theme = 'light'
+        document.documentElement.classList.remove('dark')
+        document.getElementById("toggleDarkMode").classList.remove('md-dark');
+        document.getElementById("toggleDarkMode").classList.add('md-light');
+      } else {
+        localStorage.theme = 'dark'
+        document.documentElement.classList.add('dark')
+        document.getElementById("toggleDarkMode").classList.add('md-dark');
+        document.getElementById("toggleDarkMode").classList.remove('md-light');
+      }
+    });
+  </script>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  	<meta name='viewport' content='width=device-width'>
+
+    <title>JetBlue.com - a design review</title>
+    <meta name='description' content="">
+    <meta name="theme-color" content="#ffffff"/>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json" />
+
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+    <link href="/assets/styles/tailwind.css" rel="stylesheet" />
+    <link href="/assets/styles/index.css" rel="stylesheet" />
+    <script>
+      const isDarkMode = () => localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      // Set the theme before the body renders to avoid a flash; the toggle icon is set at the end of the body
+      if (isDarkMode()) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J096MER4MD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J096MER4MD');
+    </script>
+
+  </head>
+
+  <body class="dark:text-white dark:bg-black">
+    
+<div class="container mx-auto px-4 xl:px-8">
+<div class="flex py-2 pt-12">
+  <div class="text-3xl font-semibold flex-none homelink"><a href="/">Alexander Stevens</a></div>
+  <div class="flex-auto self-end flex flex-row-reverse"><span class="lm md-light cursor-pointer" id="toggleDarkMode">Dark mode</span></div>
+</div>
+<main>
+  
+<nav>
+  <ul class="nav flex border-b-2 py-4">
+    <li><a class="text-l pr-6" href="/">Work</a></li>
+    <li><a class="text-l pr-6" href="/journal/">Journal</a></li>
+    <li><a class="text-l pr-6" href="/about/">About</a></li>
+    <li><a class="text-l pr-6" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+  </ul>
+</nav>
+
+
+  <div class="pr-16 pt-12 text-3xl lg:text-7xl font-semibold leading-10">
+      <h1>
+      JetBlue.com - a design review
+      </h1>
+  </div>
+  <div class="nav text-md py-4 pb-12">
+    
+      <span>2010-02-23</span> &mdash;
+    
+      <span>7 min read</span>
+  </div>
+
+  <div class="">
+    <div class="prose dark:prose-invert text-l xl:text-xl leading-6 xl:leading-9 font-book pb-8">
+      <h3>I saw <a href="http://twitter.com/dcurtis/status/9357836110">this tweet</a> from <a href="http://dustincurtis.com/">Dustin Curtis</a> over the weekend and thought it would be useful to give the design of the <a href="http://www.jetblue.com">JetBlue</a> 'flight booking' pages a <em>quick</em> review to try and uncover how they merited this positive response from an established user experience professional.</h3>
+<p>First impressions, clean, simple and smart. Young and fairly unemotional.</p>
+<!--more-->
+<blockquote>
+<p>I just booked a flight on JetBlue's new website. It was the most awesome experience I've had in a long time. &quot;Tada!&quot;</p>
+</blockquote>
+<ul>
+<li>The primary 'search' function really stands out of the page giving users a clear indication of where they should start.</li>
+<li>The main real estate to the right of the search contains a number of promotions BUT they all take a visual step back from the search panel in terms of design and visual weight.</li>
+<li>Easy going tone of voice immediately makes me feel relaxed.</li>
+<li>I wonder how many people realise there is more than one promotion, and is that a problem?</li>
+<li>The palette feels a little bare on repeat visits</li>
+</ul>
+<p><img src="images/jetblue01.jpg" alt="JetBlue homepage" title="JetBlue homepage"></p>
+<h3>Destination overlay</h3>
+<p>I found the airport ajax overlay easy to use and liked the way I'm able to see all the vast array of options before having to select anything.</p>
+<p><img src="images/jetblue08.jpg" alt="Destination overlay" title="Destination overlay"></p>
+<h3>Interstitial</h3>
+<p>I thought this was worth including as it's so often overlooked. If you've got some USP's that you need to communicate to your customers, use this vital few seconds whilst you've got their full attention. Good copywriting here.</p>
+<p><img src="images/jet002.gif" alt="Interstitial screen" title="Interstitial screen"></p>
+<h3>Search results</h3>
+<ul>
+<li>Visually good heirachy makes this complex page easy to understand</li>
+<li>I like the use of the very polished tabs showing differing date options. I know from experience that this is particularly difficult to achieve and its lovely to see it done with such a level of polish. I think part of what makes it work well is the fact that the 'selected' options has been made larger both in terms of font size and the removal of the abbreviation for the week day.</li>
+<li>Scarcity - I like the info showing how many seats are left at that price, although couldn't understand why it didn't show for all prices.</li>
+<li>Your itinerary shows the connecting flights in a format that is incredibly space efficient and reasonably easy to comprehend.</li>
+<li>Call to actions are clear and well differentiated.</li>
+</ul>
+<p><img src="images/jetblue10.jpg" alt="Search results" title="Search results"></p>
+<h3>Choose a seat</h3>
+<ul>
+<li>Apart from being 'very clever' it's clear and easy understand.</li>
+<li>I did get stuck when I escaped out of one of the overlay/pop-ups.</li>
+<li>Nice tone of voice upselling 'wiggle room' will add to the feel good factor of purchasing.</li>
+</ul>
+<p><img src="images/jet.005.gif" alt="Select a seat" title="Select a seat"></p>
+<p>Overall it's a very good example of where travel sites should be heading to, and although it's not as complicated as a full 'holidays' purchase I think there are still learnings to be had. Unfortunately once you venture into the full holiday's section the design falls back to what I am presuming is an earlier iteration of the current website.</p>
+<h3>Background</h3>
+<p>As a designer for a large travel outfit I have now spent quite a few years working on the intricacies of online travel and know first hand how difficult it is to get right. In fact I think most people who are expert in this field would agree, nobody has really got the user experience for booking <strong>holidays</strong> online completely right yet. For that reasons I'm always on the lookout for good examples of user experience in travel.</p>
+
+    </div>
+  </div>
+
+</main>
+
+<footer>
+<div class="py-8 border-t-2 pb-16 md:flex md:justify-between md:items-end">
+  <div>
+    <h2 class="text-2xl font-semibold">Get in touch</h2>
+    <p class="mt-2 text-lg">Open to Senior and Lead Product Designer and Design Engineer roles, permanent or contract. CV available on request.</p>
+    <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-lg font-medium">
+      <li><a class="underline" href="mailto:email@alstevens.co.uk">email@alstevens.co.uk</a></li>
+      <li><a class="underline" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+    </ul>
+  </div>
+  <div class="mt-8 md:mt-0 md:ml-8 flex-none text-base opacity-60">© 2026 Alexander Stevens</div>
+</div>
+</footer>
+
+</div>
+
+
+  <script>
+    if (isDarkMode()) {
+      document.getElementById("toggleDarkMode").classList.add('md-dark');
+      document.getElementById("toggleDarkMode").classList.remove('md-light');
+    }
+
+    document.getElementById("toggleDarkMode").addEventListener("click", function() {
+      if (isDarkMode()) {
+        localStorage.theme = 'light'
+        document.documentElement.classList.remove('dark')
+        document.getElementById("toggleDarkMode").classList.remove('md-dark');
+        document.getElementById("toggleDarkMode").classList.add('md-light');
+      } else {
+        localStorage.theme = 'dark'
+        document.documentElement.classList.add('dark')
+        document.getElementById("toggleDarkMode").classList.add('md-dark');
+        document.getElementById("toggleDarkMode").classList.remove('md-light');
+      }
+    });
+  </script>
+  </body>
+</html>

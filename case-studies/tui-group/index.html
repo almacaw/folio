@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  	<meta name='viewport' content='width=device-width'>
+
+    <title>E-commerce UX from concept to realisation for a tour operating group of companies</title>
+    <meta name='description' content="Case study by UX and Product Designer on redesigning a tour operator e-commerce platform">
+    <meta name="theme-color" content="#ffffff"/>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json" />
+
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+    <link href="/assets/styles/tailwind.css" rel="stylesheet" />
+    <link href="/assets/styles/index.css" rel="stylesheet" />
+    <script>
+      const isDarkMode = () => localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      // Set the theme before the body renders to avoid a flash; the toggle icon is set at the end of the body
+      if (isDarkMode()) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J096MER4MD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J096MER4MD');
+    </script>
+
+  </head>
+
+  <body class="dark:text-white dark:bg-black">
+    
+<div class="container mx-auto px-4 xl:px-8">
+<div class="flex py-2 pt-12">
+  <div class="text-3xl font-semibold flex-none homelink"><a href="/">Alexander Stevens</a></div>
+  <div class="flex-auto self-end flex flex-row-reverse"><span class="lm md-light cursor-pointer" id="toggleDarkMode">Dark mode</span></div>
+</div>
+<main>
+  
+<nav>
+  <ul class="nav flex border-b-2 py-4">
+    <li><a class="text-l pr-6" href="/">Work</a></li>
+    <li><a class="text-l pr-6" href="/journal/">Journal</a></li>
+    <li><a class="text-l pr-6" href="/about/">About</a></li>
+    <li><a class="text-l pr-6" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+  </ul>
+</nav>
+
+<div class="pt-16">
+  <h1 class="text-3xl lg:text-7xl font-semibold leading-tight">
+  E-commerce UX from concept to realisation for a tour operating group of companies
+  </h1>
+</div>
+<div class="nav text-md pt-8">
+  
+    <span>2020-06-01</span> &mdash;
+  
+    <span>17 min read</span>
+
+
+</div>
+
+<div class="py-8 text-xl">
+  
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/tWLjBsBC0T-320.jpeg 320w, /img/tWLjBsBC0T-640.jpeg 640w, /img/tWLjBsBC0T-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/tWLjBsBC0T-320.png 320w, /img/tWLjBsBC0T-640.png 640w, /img/tWLjBsBC0T-960.png 960w" sizes="100vw">
+      <img
+        src="/img/tWLjBsBC0T-320.jpeg"
+        alt="Mockup of iPad with Travel booking website"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>We provided a new platform to enrich the user experience and provide huge booking flexibility</figcaption>
+    </figure>
+</div>
+
+
+<div class="prose dark:prose-invert text-l xl:text-xl leading-6 xl:leading-9 font-book py-8 xl:py-16">
+
+  <p>My Role: Lead UX Designer for a Project that launched a multi-brand e-commerce platform for two brands over 18 months. The project launched two full transactional websites for two brands. Deliverables included a new content model, a new content management system. All new UX for browse, search and booking. Integration of Peakwork's dynamic packaging cache.</p>
+<p>TUI Group is the worlds largest tour operator. I worked in their Specialist Holiday Division, a group of luxury and long haul tour operators as lead designer of a UX team tasked with re-designing their e-commerce platform, moving their businesses to a new content platform and using the process as a digital transformation tool.</p>
+<h2 id="the-core-team" tabindex="-1"><a class="header-anchor" href="#the-core-team"><span>The Core Team</span></a></h2>
+<p>User Research Team
+UX Design Team (me, plus four others)
+Business Analysts
+Development Team consisting back-end and front-end developers
+Third party development team
+Testing Team
+Sales, Marketing and Commercial departments</p>
+<h2 id="overview" tabindex="-1"><a class="header-anchor" href="#overview"><span>Overview</span></a></h2>
+<p>Tour operating is fiercly competitive. The businesses were facing tough competition both online and offline. To boost sales and move more sales online they commissioned a redesign of their ageing e-commerce platform. I led a team of designers on this complex re-platform using Hybris and Peakwork.</p>
+<p>Their packages consist of scheduled flights + accommodation + transfers. These are dynamically packaged using global reservation systems.Traditionally searches might take ten or twenty seconds. We wanted to reduce that to under a second.</p>
+<p>They also offered more complex multi-centre and tour packages which was a small but growing part of the business. The project touched all aspects of the businesses and helped a wider digital transformation of the way they operated.</p>
+<h2 id="research-synthesis" tabindex="-1"><a class="header-anchor" href="#research-synthesis"><span>Research Synthesis</span></a></h2>
+<p>Our lead researcher led some qualitative research into peoples buying behaviour in the form of diary studies. From this we produced a very detailed (A0) mental model, task model and set of personas. This showed detailed user needs at differing stages of their holidaying cycle.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/faveWlkdiG-320.jpeg 320w, /img/faveWlkdiG-640.jpeg 640w, /img/faveWlkdiG-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/faveWlkdiG-320.png 320w, /img/faveWlkdiG-640.png 640w, /img/faveWlkdiG-960.png 960w" sizes="100vw">
+      <img
+        src="/img/faveWlkdiG-320.jpeg"
+        alt="Persona documents"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Our three main customer profiles as identified by qualitative research</figcaption>
+    </figure>
+<h2 id="content-modelling" tabindex="-1"><a class="header-anchor" href="#content-modelling"><span>Content modelling</span></a></h2>
+<p>We mapped out all content needs from our new mental model. This allowed us to identify all missing content and create a brand new content model.</p>
+<p>This included more detail for hotels and a flexible hierarchy for destinations. (because geography is complicated.)</p>
+<h2 id="design-workshops" tabindex="-1"><a class="header-anchor" href="#design-workshops"><span>Design workshops</span></a></h2>
+<p>We ran workshops to create and agree the high level flows with our researchers and members of the delivery team. This allowed us to start mapping the high level journeys.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/tWLjBsBC0T-320.jpeg 320w, /img/tWLjBsBC0T-640.jpeg 640w, /img/tWLjBsBC0T-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/tWLjBsBC0T-320.png 320w, /img/tWLjBsBC0T-640.png 640w, /img/tWLjBsBC0T-960.png 960w" sizes="100vw">
+      <img
+        src="/img/tWLjBsBC0T-320.jpeg"
+        alt="Photo of workshop"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Ideation workshops for single screens and for content modelling</figcaption>
+    </figure>
+<p>After working with the businesses to figure out which areas were ‘phase 1/mvp’ we identified our key screens.</p>
+<p>For each of these we ran ideation workshops with a cross section of the business. We made sure we had input from Product, Sales and Marketing.</p>
+<p>The workshops took the form of a mini design Sprint. Starting with Crazy 8 sketching and ending in a collaborative whiteboard design session.</p>
+<p>From our workshop sketches we went to work producing more detailed wireframes. As these emerged I created screen flows to help the development team understand how all the screens tie together.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/WMjCZRjcRU-320.jpeg 320w, /img/WMjCZRjcRU-640.jpeg 640w" sizes="100vw">
+  <source type="image/png" srcset="/img/WMjCZRjcRU-320.png 320w, /img/WMjCZRjcRU-640.png 640w" sizes="100vw">
+      <img
+        src="/img/WMjCZRjcRU-320.jpeg"
+        alt="Flow diagram"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Screen flow to tie together key screens</figcaption>
+    </figure>
+<h2 id="lo-fi-prototype" tabindex="-1"><a class="header-anchor" href="#lo-fi-prototype"><span>Lo-fi prototype</span></a></h2>
+<p>Once we had some idea of what we wanted to test we built a prototype to test with our customers. We started by trying to prototype in actual code, working off our wireframes to work up the prototypes.</p>
+<p>After a couple of cycles we found that this approach wasn’t working well for a quick iteration cycle (for a number of reasons) and we moved to Axure to run our prototypes.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/NA24yfDVMV-320.jpeg 320w, /img/NA24yfDVMV-640.jpeg 640w, /img/NA24yfDVMV-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/NA24yfDVMV-320.png 320w, /img/NA24yfDVMV-640.png 640w, /img/NA24yfDVMV-960.png 960w" sizes="100vw">
+      <img
+        src="/img/NA24yfDVMV-320.jpeg"
+        alt="Wireframe of hotel page"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Wireframe of the Rooms and Board section of the hotel screen</figcaption>
+    </figure>
+<p>We tested our prototyping in formal lab testing. We immediately iterated, responding to user feedback and iteratively moving toward higher fidelity. My team and I were responsible for all the design output and prototyping. We all attended every session to maximise learnings from our user testing.</p>
+<h2 id="detailed-design" tabindex="-1"><a class="header-anchor" href="#detailed-design"><span>Detailed design</span></a></h2>
+<p>Multiple rounds of iteration with stakeholders led to a final visual design which closely aligned with the brand.</p>
+<p>I was responsible for gaining consensus around the new designs both within the team and with the wider business.</p>
+<p>H&amp;J was our first brand to be designed. The visual style is rich and sumptuous—reflecting the destinations and hotels on offer. I art-directed the team of designers and collaborated with the business to come up with a final design style. Refined typography and stunning imagery give the feel of luxury and reflect the brand.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/-79AjpyTNu-320.jpeg 320w, /img/-79AjpyTNu-640.jpeg 640w, /img/-79AjpyTNu-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/-79AjpyTNu-320.png 320w, /img/-79AjpyTNu-640.png 640w, /img/-79AjpyTNu-960.png 960w" sizes="100vw">
+      <img
+        src="/img/-79AjpyTNu-320.jpeg"
+        alt="Mockup of website on laptop screen"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Our destination pages are critical source for SEO and contain a detailed travel guide as well as destination and hotel listings.</figcaption>
+    </figure>
+<p>The results was that customers could now price up a holiday at any level of geography, from continent, to resort (the most traditional option) to hotel. No need to re-perform a new search for every different option.And people landing from natural search were able to get straight into packages.</p>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/rFXkoaRsGE-320.jpeg 320w, /img/rFXkoaRsGE-640.jpeg 640w, /img/rFXkoaRsGE-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/rFXkoaRsGE-320.png 320w, /img/rFXkoaRsGE-640.png 640w, /img/rFXkoaRsGE-960.png 960w" sizes="100vw">
+      <img
+        src="/img/rFXkoaRsGE-320.jpeg"
+        alt="Mockup of smartphone with Hayes and Jarvis website"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>The designs were fully responsive and designed to three breakpoints</figcaption>
+    </figure>
+<p>Our new content model supported the realities of geography which is not as linear as country, resort.</p>
+<p>We designed a rich and flexible content model which was able to expand for mega resorts whilst still working for smaller more intimate resorts.</p>
+<h2 id="luxury-customers-seek-a-level-of-detail-many-%E2%80%98normal%E2%80%99-people-would-not-think-to-ask." tabindex="-1"><a class="header-anchor" href="#luxury-customers-seek-a-level-of-detail-many-%E2%80%98normal%E2%80%99-people-would-not-think-to-ask."><span>Luxury customers seek a level of detail many ‘normal’ people would not think to ask.</span></a></h2>
+  <figure class="undefined">
+  <picture>
+      <source type="image/jpeg" srcset="/img/QUHwlWpLxs-320.jpeg 320w, /img/QUHwlWpLxs-640.jpeg 640w, /img/QUHwlWpLxs-960.jpeg 960w" sizes="100vw">
+  <source type="image/png" srcset="/img/QUHwlWpLxs-320.png 320w, /img/QUHwlWpLxs-640.png 640w, /img/QUHwlWpLxs-960.png 960w" sizes="100vw">
+      <img
+        src="/img/QUHwlWpLxs-320.jpeg"
+        alt="Mockup of smartphone with Hayes and Jarvis website"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>We redefined the quality of content for luxury customers, providing every small but important detail</figcaption>
+    </figure>
+<p>Our hotel pages captured these details providing a single place where customers can find out everything a hotel and resort.</p>
+<p>This new information varied from opening times of resort restaurants and shops, to extremely detailed room information (floorplans, square footage, bathroom photos) to what’s included with all inclusive and where. And it was all delivered in one , in an inspiring and easy to digest page.</p>
+<p>Additionally we designed a platform which allowed H&amp;J to increase its high margin tours and safaris product.</p>
+<p>Photo of website on a screen
+As well as dynamically packaged holidays we had to deal with multi-centre and tours, a very complex product set.</p>
+<h2 id="outcomes" tabindex="-1"><a class="header-anchor" href="#outcomes"><span>Outcomes</span></a></h2>
+<ul>
+<li>We increased the system usability score by 18.</li>
+<li>We reduced the number of required steps in the booking funnel journey from three error prone and painfully slow search and result screens to one screen.</li>
+<li>Customers were able to see what effect changing dates, durations and other factors will have on price without having to re-search multiple times</li>
+<li>Customers were able to search at all levels of geography (for example: show me all holidays in Thailand)</li>
+</ul>
+<h2 id="learnings" tabindex="-1"><a class="header-anchor" href="#learnings"><span>Learnings</span></a></h2>
+<p>We learned that customers mental model of ‘search, search results, book’ are strong. Our radical design meant customers didn’t always need to search, but for some this may have been confusing.</p>
+<p>In Axure, prototyping separate version of mobile and desktop was preferable to their responsive solution which creaked with the level of detail we were throwing at it</p>
+<p>We learnt that prototypes need to be the right fidelity – we didn’t always hit the goldilocks zone – the right balance between believability and effort. At times our prototype was too ‘wireframey’ – which we believe may have skewed some user testing. We also learned that prototyping in code in a new complex cms system was not able to produce results quickly enough to test and iterate as we needed. We would have been better producing higher fidelity mockups and faking the data.</p>
+
+  <a href="/">Back to case studies ⤴</a>
+</div>
+
+</main>
+
+<footer>
+<div class="py-8 border-t-2 pb-16 md:flex md:justify-between md:items-end">
+  <div>
+    <h2 class="text-2xl font-semibold">Get in touch</h2>
+    <p class="mt-2 text-lg">Open to Senior and Lead Product Designer and Design Engineer roles, permanent or contract. CV available on request.</p>
+    <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-lg font-medium">
+      <li><a class="underline" href="mailto:email@alstevens.co.uk">email@alstevens.co.uk</a></li>
+      <li><a class="underline" href="https://www.linkedin.com/in/alstevens/">LinkedIn</a></li>
+    </ul>
+  </div>
+  <div class="mt-8 md:mt-0 md:ml-8 flex-none text-base opacity-60">© 2026 Alexander Stevens</div>
+</div>
+</footer>
+
+</div>
+
+
+  <script>
+    if (isDarkMode()) {
+      document.getElementById("toggleDarkMode").classList.add('md-dark');
+      document.getElementById("toggleDarkMode").classList.remove('md-light');
+    }
+
+    document.getElementById("toggleDarkMode").addEventListener("click", function() {
+      if (isDarkMode()) {
+        localStorage.theme = 'light'
+        document.documentElement.classList.remove('dark')
+        document.getElementById("toggleDarkMode").classList.remove('md-dark');
+        document.getElementById("toggleDarkMode").classList.add('md-light');
+      } else {
+        localStorage.theme = 'dark'
+        document.documentElement.classList.add('dark')
+        document.getElementById("toggleDarkMode").classList.add('md-dark');
+        document.getElementById("toggleDarkMode").classList.remove('md-light');
+      }
+    });
+  </script>
+  </body>
+</html>
