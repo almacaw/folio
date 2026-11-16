@@ -16,7 +16,7 @@ Node 16 (`.node-version`).
 
 ## Deployment
 
-Hosting is Clook cPanel (LiteSpeed). The live route is Git-based: pushing to `main` runs `.github/workflows/build.yml`, which builds on Node from `.node-version` and force-pushes `_site/` to the orphan `deploy` branch. cPanel Git Version Control has a clone of that branch (outside `public_html`); "Update from Remote" then "Deploy HEAD Commit" runs `src/.cpanel.yml` (passthrough-copied into the build), which rsyncs into `/home/alystevens/public_html/` with `--delete`, keeping `.well-known`, `cgi-bin` and `error_log`. Never commit to `deploy` by hand.
+Hosting is Clook cPanel (LiteSpeed). The live route is Git-based: pushing to `main` runs `.github/workflows/build.yml`, which builds on Node from `.node-version` and commits `_site/` on top of the `deploy` branch (never force-pushed, so cPanel can fast-forward pull). cPanel Git Version Control has a clone of that branch (outside `public_html`); "Update from Remote" then "Deploy HEAD Commit" runs `src/.cpanel.yml` (passthrough-copied into the build), which rsyncs into `/home/alystevens/public_html/` with `--delete`, keeping `.well-known`, `cgi-bin` and `error_log`. Never commit to `deploy` by hand.
 - `npm run debug`: same as start, with `DEBUG=Eleventy*`
 - `npm run lint` / `npm run lint:fix`: ESLint (there are no tests; `npm test` just fails)
 
