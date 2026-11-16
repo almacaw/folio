@@ -1,7 +1,9 @@
 ---
 # Run by cPanel Git Version Control on "Deploy HEAD Commit" (from the built `deploy` branch).
 # Copies the site into public_html, leaving cPanel's own folders alone.
+# The clone is private (600/700), so permissions are reset for the web server: folders 755, files 644.
 deployment:
   tasks:
     - export DEPLOYPATH=/home/alystevens/public_html/
-    - if [ -x /usr/bin/rsync ]; then /usr/bin/rsync -a --delete --exclude '.git' --exclude '.cpanel.yml' --exclude '.nojekyll' --exclude '.well-known' --exclude 'cgi-bin' --exclude 'error_log' ./ $DEPLOYPATH; else tar -cf - --exclude='.git' --exclude='.cpanel.yml' --exclude='.nojekyll' . | tar -xf - -C $DEPLOYPATH; fi
+    - if [ -x /usr/bin/rsync ]; then /usr/bin/rsync -rlt --delete --exclude '.git' --exclude '.cpanel.yml' --exclude '.nojekyll' --exclude '.well-known' --exclude 'cgi-bin' --exclude 'error_log' ./ $DEPLOYPATH; else tar -cf - --exclude='.git' --exclude='.cpanel.yml' --exclude='.nojekyll' . | tar -xf - -C $DEPLOYPATH; fi
+    - find $DEPLOYPATH -name cgi-bin -prune -o -name .well-known -prune -o -name error_log -prune -o -type d -exec chmod 755 {} + -o -type f -exec chmod 644 {} +
