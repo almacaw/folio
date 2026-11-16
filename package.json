@@ -9,7 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "build": "npx @11ty/eleventy & npx tailwindcss -i ./tailwind.css -o _site/assets/styles/tailwind.css"
+    "build": "rm -rf _site && npx @11ty/eleventy && npx tailwindcss -i ./tailwind.css -o _site/assets/styles/tailwind.css --minify",
+    "deploy:dry": "npm run build && ./deploy.sh --dry-run",
+    "deploy": "npm run build && ./deploy.sh"
   },
   "keywords": [],
   "author": "",

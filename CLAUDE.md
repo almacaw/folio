@@ -11,11 +11,18 @@ Personal portfolio and journal for Alexander Stevens (alstevens.co.uk), built wi
 Node 16 (`.node-version`).
 
 - `npm start`: Eleventy dev server on localhost:8080 plus Tailwind in watch mode
-- `npm run build`: builds into `_site/`
+- `npm run build`: clean production build into `_site/`: wipes `_site`, runs Eleventy, then minified Tailwind, in sequence
+- `npm run deploy:dry` / `npm run deploy`: build, then rsync `_site/` over SSH via `deploy.sh`, using the git-ignored `.env.deploy`. Currently unusable because Clook's SSH port is closed; kept for if SSH is enabled.
+
+## Deployment
+
+Hosting is Clook cPanel (LiteSpeed). The live route is Git-based: pushing to `main` runs `.github/workflows/build.yml`, which builds on Node from `.node-version` and force-pushes `_site/` to the orphan `deploy` branch. cPanel Git Version Control has a clone of that branch (outside `public_html`); "Update from Remote" then "Deploy HEAD Commit" runs `src/.cpanel.yml` (passthrough-copied into the build), which rsyncs into `/home/alystevens/public_html/` with `--delete`, keeping `.well-known`, `cgi-bin` and `error_log`. Never commit to `deploy` by hand.
 - `npm run debug`: same as start, with `DEBUG=Eleventy*`
 - `npm run lint` / `npm run lint:fix`: ESLint (there are no tests; `npm test` just fails)
 
-Eleventy and Tailwind run as two separate processes joined with `&`. Tailwind compiles the root `tailwind.css` straight into `_site/assets/styles/tailwind.css`; it is not part of the Eleventy pipeline. If styles are missing, check that the Tailwind process ran.
+Tailwind compiles the root `tailwind.css` straight into `_site/assets/styles/tailwind.css`; it is not part of the Eleventy pipeline. In `npm start` the two run as parallel processes joined with `&`. If styles are missing, check that the Tailwind process ran. The Tailwind watcher exits immediately without a TTY on stdin (e.g. when backgrounded by an agent); keep stdin open with `tail -f /dev/null | npx tailwindcss … --watch`.
+
+Hosting is Apache: `src/.htaccess` (passthrough-copied) points 404s at `/404.html`, and `src/robots.txt` is passthrough-copied too. The sitemap skips `published: false` pages and uses `templateEngineOverride: liquid` so Markdown doesn't mangle the XML.
 
 ## Architecture
 
