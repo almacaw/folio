@@ -66,7 +66,7 @@ Using Figma and either a file or a page for each user story we were able to use 
 ## Building a brand, website and design system
 We wanted Auderli to have a strong brand which should be approachable, accessible to all and soften the difficult subject of death tech. We worked with a brand agency to help us create the identity and which has then evolved in the app and website.
 
-{% image "./src/assets/postimages/auderli/cover.png", "App store screenshots", "Artwork created for the App store information" %}
+{% image "./src/assets/postimages/auderli/Cover.png", "App store screenshots", "Artwork created for the App store information" %}
 
 {% image "./src/assets/postimages/auderli/design-system.png", "Composition of various screenshots showing brand", "The app and website have a unique and consistent brand look and feel" %}
 
