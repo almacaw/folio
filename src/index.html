@@ -6,8 +6,8 @@ layout: home
 
 <h2 class="text-2xl font-semibold pb-12">Selected work</h2>
 
-<div class="md:flex items-center pb-16 md:pb-24">
-  <div class="md:w-2/3 lg:pr-16 md:pr-8">
+<div class="pb-16 md:pb-24">
+  <div class="max-w-2xl">
     <p class="text-base opacity-60">Lead UX Designer &middot; UK financial services &middot; 2024–2026</p>
     <h3 class="mt-2 text-2xl sm:text-4xl font-semibold leading-tight">Unifying legacy share scheme services into one platform</h3>
     <p class="mt-4">Hands-on design across a six-team programme. I used Claude to build functional prototypes with real interaction logic, showing complete customer journeys that static Figma prototypes couldn’t. Full case study coming soon; happy to talk it through in the meantime.</p>
@@ -17,15 +17,16 @@ layout: home
       <li class="post-tag">AI prototyping</li>
     </ul>
   </div>
-  <div class="md:w-1/3 mt-8 md:mt-0">
-    <div class="aspect-[4/3] flex items-center justify-center border-2 border-dashed rounded text-base opacity-60">Case study in progress</div>
+  <div class="mt-10 grid gap-8 md:grid-cols-2">
+    {% image "./src/assets/postimages/financial-services/sharesave-overview.png", "Sharesave plan overview showing the application, savings and maturity stages as a lifecycle, with a savings timeline and key figures", "Plan overview organised around the scheme lifecycle", "", "(min-width: 768px) 50vw, 100vw" %}
+    {% image "./src/assets/postimages/financial-services/sharesave-calculator.png", "Sharesave calculator comparing 3 and 5 year schemes, with monthly contribution and share price inputs and the resulting options, indicative value and increase", "Contribution calculator comparing 3 and 5 year schemes", "", "(min-width: 768px) 50vw, 100vw" %}
   </div>
 </div>
 
 {% for work in collections.work %}
 {% if work.data.featured %}
 <div class="md:flex items-center pb-16 md:pb-24">
-  <div class="md:w-2/3 lg:pr-16 md:pr-8">
+  <div class="md:w-2/3 max-w-2xl lg:pr-16 md:pr-8">
     <p class="text-base opacity-60">{{ work.data.role }} &middot; {{ work.data.client }} &middot; {{ work.data.period }}</p>
     <h3 class="mt-2 text-2xl sm:text-4xl font-semibold leading-tight"><a href="{{ work.url }}">{{ work.data.card-title | default: work.data.title }}</a></h3>
     <p class="mt-4">{{ work.data.summary | default: work.data.post_excerpt }}</p>
