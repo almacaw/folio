@@ -45,6 +45,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(embedYouTube);
   eleventyConfig.addPlugin(embedVimeo);
 
+  // Changes on every build; appended to stylesheet URLs so browsers fetch fresh CSS after a deploy
+  eleventyConfig.addGlobalData('buildVersion', Date.now().toString(36))
+
   // To enable merging of tags
   eleventyConfig.setDataDeepMerge(true)
 
