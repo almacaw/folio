@@ -57,11 +57,11 @@ body  {
 .prose h2, .prose h3, .prose h2 a {font-weight: 500!important; font-size:110%}
 
 
-figure img {box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 0.2); }
+figure img {box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 0.2); border-radius: 0.75rem; }
 figure figcaption {text-align: center; font-weight: 400; margin-top:16px; line-height: 1.1em; @apply text-gray-500; font-size: 75%}
 .prose figure figcaption {font-size: 70%}
 
-figure.no-shadow img {box-shadow:none}
+figure.no-shadow img {box-shadow:none; border-radius:0}
 
 .avatar {border-radius: 400px; overflow: hidden;}
 
