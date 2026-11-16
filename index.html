@@ -13,8 +13,8 @@
     <link rel="manifest" href="/manifest.json" />
 
     <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
-    <link href="/assets/styles/tailwind.css?v=mwj467io" rel="stylesheet" />
-    <link href="/assets/styles/index.css?v=mwj467io" rel="stylesheet" />
+    <link href="/assets/styles/tailwind.css?v=mwj4pjaf" rel="stylesheet" />
+    <link href="/assets/styles/index.css?v=mwj4pjaf" rel="stylesheet" />
     <script>
       const isDarkMode = () => localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
       // Set the theme before the body renders to avoid a flash; the toggle icon is set at the end of the body
@@ -91,8 +91,8 @@
   
 <h2 class="text-2xl font-semibold pb-12">Selected work</h2>
 
-<div class="md:flex items-center pb-16 md:pb-24">
-  <div class="md:w-2/3 lg:pr-16 md:pr-8">
+<div class="pb-16 md:pb-24">
+  <div class="max-w-2xl">
     <p class="text-base opacity-60">Lead UX Designer &middot; UK financial services &middot; 2024–2026</p>
     <h3 class="mt-2 text-2xl sm:text-4xl font-semibold leading-tight">Unifying legacy share scheme services into one platform</h3>
     <p class="mt-4">Hands-on design across a six-team programme. I used Claude to build functional prototypes with real interaction logic, showing complete customer journeys that static Figma prototypes couldn’t. Full case study coming soon; happy to talk it through in the meantime.</p>
@@ -102,15 +102,42 @@
       <li class="post-tag">AI prototyping</li>
     </ul>
   </div>
-  <div class="md:w-1/3 mt-8 md:mt-0">
-    <div class="aspect-[4/3] flex items-center justify-center border-2 border-dashed rounded text-base opacity-60">Case study in progress</div>
+  <div class="mt-10 grid gap-8 md:grid-cols-2">
+    
+  <figure class="">
+  <picture>
+      <source type="image/jpeg" srcset="/img/VM_DsMMqMU-320.jpeg 320w, /img/VM_DsMMqMU-640.jpeg 640w, /img/VM_DsMMqMU-960.jpeg 960w" sizes="(min-width: 768px) 50vw, 100vw">
+  <source type="image/png" srcset="/img/VM_DsMMqMU-320.png 320w, /img/VM_DsMMqMU-640.png 640w, /img/VM_DsMMqMU-960.png 960w" sizes="(min-width: 768px) 50vw, 100vw">
+      <img
+        src="/img/VM_DsMMqMU-320.jpeg"
+        alt="Sharesave plan overview showing the application, savings and maturity stages as a lifecycle, with a savings timeline and key figures"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Plan overview organised around the scheme lifecycle</figcaption>
+    </figure>
+    
+  <figure class="">
+  <picture>
+      <source type="image/jpeg" srcset="/img/PPQJzUfZTr-320.jpeg 320w, /img/PPQJzUfZTr-640.jpeg 640w, /img/PPQJzUfZTr-960.jpeg 960w" sizes="(min-width: 768px) 50vw, 100vw">
+  <source type="image/png" srcset="/img/PPQJzUfZTr-320.png 320w, /img/PPQJzUfZTr-640.png 640w, /img/PPQJzUfZTr-960.png 960w" sizes="(min-width: 768px) 50vw, 100vw">
+      <img
+        src="/img/PPQJzUfZTr-320.jpeg"
+        alt="Sharesave calculator comparing 3 and 5 year schemes, with monthly contribution and share price inputs and the resulting options, indicative value and increase"
+        loading="lazy"
+        decoding="async"
+        >
+    </picture>
+    <figcaption>Contribution calculator comparing 3 and 5 year schemes</figcaption>
+    </figure>
   </div>
 </div>
 
 
 
 <div class="md:flex items-center pb-16 md:pb-24">
-  <div class="md:w-2/3 lg:pr-16 md:pr-8">
+  <div class="md:w-2/3 max-w-2xl lg:pr-16 md:pr-8">
     <p class="text-base opacity-60">Head of UX &middot; Auderli &middot; 2020–2024</p>
     <h3 class="mt-2 text-2xl sm:text-4xl font-semibold leading-tight"><a href="/case-studies/auderli/">From idea to paid MVP in six sprints</a></h3>
     <p class="mt-4">Sole designer at a bootstrapped startup. I owned research, interaction design, brand and the design system, worked daily with founders and engineers, and designed and built the marketing site in Gatsby and React.</p>
@@ -139,7 +166,7 @@
 
 
 <div class="md:flex items-center pb-16 md:pb-24">
-  <div class="md:w-2/3 lg:pr-16 md:pr-8">
+  <div class="md:w-2/3 max-w-2xl lg:pr-16 md:pr-8">
     <p class="text-base opacity-60">UX/UI Designer &middot; Click Travel &middot; 2017–2019</p>
     <h3 class="mt-2 text-2xl sm:text-4xl font-semibold leading-tight"><a href="/case-studies/click-travel/">Solo designer for seven engineering teams</a></h3>
     <p class="mt-4">The only designer on a B2B travel platform handling £300m of bookings. I worked with front-end engineers to evolve the pattern library across two redesigns and a re-platform, while NPS doubled.</p>
@@ -168,7 +195,7 @@
 
 
 <div class="md:flex items-center pb-16 md:pb-24">
-  <div class="md:w-2/3 lg:pr-16 md:pr-8">
+  <div class="md:w-2/3 max-w-2xl lg:pr-16 md:pr-8">
     <p class="text-base opacity-60">Lead UX Designer &middot; TUI Specialist Holidays &middot; 2010–2017</p>
     <h3 class="mt-2 text-2xl sm:text-4xl font-semibold leading-tight"><a href="/case-studies/tui-group/">A multi-brand e-commerce platform, from concept to launch</a></h3>
     <p class="mt-4">Led a team of designers on an 18-month re-platform that launched two transactional websites, with new browse, search and booking journeys and a new content model.</p>
